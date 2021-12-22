@@ -1,183 +1,126 @@
-import React, { Components, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import PageBanner from '../PageBanner';
-import Header from '../../Header';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link
 } from "react-router-dom";
-
+import displayNotice from '../DisplayNotice'
+import guidelines from '../../../JSON/Authors/guidelines.json'
+import MaintenanceBreak from '../MaintenanceBreak';
 
 function Guidlines() {
+
+    const [allData, setAllData] = useState([]);
+    const [maintenanceBreakMessage, setMaintenanceBreakMessage] = useState(null);
+    const [displayNotice, setDisplayNotice] = useState(null);
+    const [peperSubList, setPeperSubList] = useState([]);
+    const [toShow, setToShow] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+
+    
+
+
+    useEffect(() => {
+        //api call
+        
+        setAllData(guidelines)
+        if(allData.maintenanceBreakState){
+            setToShow(false);
+        }else{
+            setToShow(true);
+            //setPeperSubList(guidelines.data.paperSubGuidelineList);
+        }
+        setIsLoading(false)
+
+       
+        
+    }, [allData])
+
+
     return (
         <div>
-
+            {/* PageBanner - start */}
             <PageBanner name="Submission Guidlines" head="Author" subhead="Submission Guidlines" info="Feel Free To Get In Touch" />
-            <br/>
-            <div id="content">
+            {/* PageBanner - end */}
+            
 
-
-
-                <div class="container">
-
-
-
-                    <div class="page-content">
-
-
-
-
-
-
-
-                        <div class="col-md-9">
-
-
+            <div className="contenti">
+                <div className="container">
+                    <div className="page-content">
+                        <div className="col-md-9">
                             {/*<!-- <h4>A research student who wants to submit a paper for the WCE Research Symposium on Computing should prepare:</h4> -->*/}
-                            <h3 class="classic-title" id="notifications"><span>Paper Submission Guidlines </span></h3>
-                            <br />
+                            
+                            {
+                                isLoading ? (
+                                    <div>Loading</div>
+                                ) : (
+                                    <>
+                                    <h3 className="classic-title" id="notifications"><span>Paper Submission Guidlines</span></h3>
+                                    { 
+                                        toShow ? (
+                                            <React.Fragment>
+                                                <ul style={{ listStyleType: 'disc', marginLeft: '3%' }}>
+                                                    {
+                                                        allData.data.paperSubGuidelineList ? (
+                                                                allData.data.paperSubGuidelineList.map((item)=><li key={item.id}>{item.listItem}</li>)
+                                                            ) : null                                                       
+                                                    }
+                                                </ul>
 
+                                                <div className="hr5" style={{marginTop:'30px',marginBottom:'30px'}}></div>
 
+                                                <h3 className="classic-title" id="notifications"><span>Publication</span></h3>
+                                                <p style={{whiteSpace:'pre-line'}}>{allData.data.publicationInfo }</p>
 
-                            <ul style={{ listStyleType: 'disc', marginLeft: '3%' }}>
-                                <li>Simultaneous submissions (papers already submitted to other conferences/journals) are not allowed.
-                                </li>
-                                <li>All papers must follow the conference template strictly for the submission.Violation of which leads
-                                    to rejection of the paper.</li>
-                                <li><b>Double Blind Review: </b> The author's identity such as name, affiliation and email address need to
-                                    be provided in Easy Chair Account.No identity information shall be included in the initial paper.</li>
-                                <li>Plagiarism Policy: Document content similarity upto 15% (Turn-It-In) will be considered acceptable for the review process.</li>
-                                <li>Maximum number of authors per paper shall not be more than four.</li>
-                                <li>Paper Length limited to 8 pages including figures, tables and references. A maximum of two additional pages are permitted with an additional charge of INR 1000/- per page and
-                                    is to be paid during author registration</li>
-                                <li>File Size limitation: 5.0 MB.</li>
-                                <li>No page numbering on the manuscript is allowed.</li>
-                            </ul>
+                                                <div className="hr5" style={{marginTop:'30px',marginBottom:'30px'}}></div>
 
+                                                <h3 className="classic-title" id="notifications"><span>Note</span></h3>
+                                                <p style={{whiteSpace:'pre-line'}}>{allData.data.noteInfo}</p>
 
+                                            </React.Fragment>
+                                        ) : (
+                                            // <MaintenanceBreak heading={allData.maintenanceBreakHeading} message={allData.maintenanceBreakContent}/>
+                                            null
+                                            
+                                        )
+                                    }
+                                        </>
+                                )
+                            }
+                           
+                      
 
-                            <br />
+                            
 
+                            
 
-                            <br />
-                            <h3 class="classic-title" id="notifications"><span>Publication</span></h3>
-                            <p>All the selected and presented papers in the conference except E-learning Track will be
-                                published in Springer Book Series (in Process). The papers of E-learning track will be
-                                published in RSC proceedings only. The Organizing Committee's decision will be final
-                                on publications of paper in the journals.
-                            </p>
-                            <br />
-
-
-                            <br />
-
-
-
-
-                            <h3 class="classic-title" id="notifications"><span>Note</span></h3>
-                            <p>All the three documents must be written in English.</p>
-
-
-
-
+                            
+                          
+                            
                         </div>
 
-
-
-                        <div class="col-md-3 sidebar right-sidebar">
-
-
-
-
-                            <div class="widget widget-categories">
-
-
-
-                                <h4>Related Links <span class="head-line"></span></h4>
-
-
-
+                        {/* Related Links - start */}
+                        <div className="col-md-3 sidebar right-sidebar">
+                            <div className="widget widget-categories">
+                                <h4 className="accent-color">Related Links <span className="head-line"></span></h4>
                                 <ul>
-
-
-
-
-
-
-
                                     <li>
-
-
-
                                         <Link to="Call-for-contribution">Call for Contributions</Link>
-
-
-
-
                                     </li>
-
-
-
-
-
-
-
-
-
-
-
                                     <li>
-
-
-
                                         <Link to="Paper-Submission">Paper Submission</Link>
-
-
-
                                     </li>
-
-
-
-
-
-
-
                                     <li>
-
                                         <Link to="Important-Dates">Important Dates</Link>
-
                                     </li>
-
-
-
-
-
-
-
-
                                 </ul>
-
-
-
                             </div>
-
-
-
                         </div>
-
-
+                        {/* Related Links - end */}
+                        
 
                     </div>
-
-
-
                 </div>
-
-
-
             </div>
-
         </div>
     );
 }

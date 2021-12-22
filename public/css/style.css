@@ -38,7 +38,7 @@ body {
   line-height: 21px;
   font-weight: 470;
   color: #666;
-  background: url(../images/patterns/1.png) fixed repeat;
+  background: url(../images/patterns/5.png) fixed repeat;
 }
 strong,
 b {
@@ -650,7 +650,7 @@ ul.social-list li:last-child a i {
   position: absolute;
   left: 0;
   top: 100%;
-  width: 180px;
+  width: 200px;
   background-color: #fff;
   visibility: hidden;
   z-index: 2;
@@ -1101,8 +1101,8 @@ input[type="submit"] {
   color: #666fb5;
   font-size: 13px;
   font-family: "Open Sans", sans-serif;
-  border: 1px solid #eee;
-  border-radius: 2px;
+  border: 2px solid #eee;
+  border-radius: 3px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -o-border-radius: 2px;
@@ -2713,7 +2713,7 @@ ul.icons-list li i {
 }
 
 .team-member .member-socail {
-  //text-align: center;
+  text-align: center;
 }
 
 .team-member .member-socail a i {
@@ -2764,11 +2764,31 @@ ul.icons-list li i {
 
 .team-member.modern .member-info {
   padding: 14px 0;
+  margin-top: 12px;
 }
 
 .team-member.modern .member-photo img {
-  height: 200px;
-  width: 200px;
+  height: 256px;
+  width: 256px;
+}
+
+.team-member.modern .sponsor-photo {
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  margin: 10px;
+}
+
+.team-member.modern .sponsor-photo:hover {
+  border: 1px solid #00afd1;
+}
+
+.team-member.modern .sponsor-photo img {
+  height: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 10px;
 }
 
 .team-member.modern .member-photo {
@@ -2845,6 +2865,7 @@ ul.icons-list li i {
   padding-bottom: 8px;
   border-bottom: 1px solid;
   font-weight: 400;
+  line-height: 32px;
 }
 
 .big-title {
@@ -5685,4 +5706,18 @@ ul.footer-nav li a:hover {
 
 .navbar-collapse {
   max-height: 340px;
+}
+
+table {
+  width: 100%;
+}
+table thead th {
+  padding: 10px !important;
+  background-color: #0bb586;
+  color: #fff;
+}
+table tbody td {
+  padding: 10px !important;
+  color: #666;
+  /* border: 1px solid #00afd1 !important; */
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Router, Switch } from 'react-router-dom'
-import App from '../App'
+import { Route, Switch } from 'react-router-dom'
 import About from './RouteingTable/About/About'
 import Contact from './RouteingTable/Contact/Contact'
 import Gallery from './RouteingTable/Gallery/Gallery'
@@ -20,6 +19,9 @@ import Venue from './RouteingTable/Local/Venue'
 import Location from './RouteingTable/Local/Location'
 import Accessing from './RouteingTable/Local/Accessing'
 import Guidlines from './RouteingTable/Authors/Guidlines'
+import Login from './RouteingTable/Admin/Login'
+import AdminPanel from './RouteingTable/Admin/Editor/AdminPanel'
+import ENotification from './RouteingTable/Admin/Editor/Home/ENotification'
 
 
 export default class RoutingTable extends Component {
@@ -28,68 +30,118 @@ export default class RoutingTable extends Component {
             <div>
 
                 <Switch>
-                    <Route path="/contact">
-                        <Contact />
-                    </Route>
-                    <Route path="/gallery">
-                        <Gallery />
-                    </Route>
-                    <Route path="/about">
-                        <About />
-                    </Route>
-                    <Route path="/IPS">
-                        <IPS/>
+
+                    {/* Home - start*/}
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                    {/* Home - end*/}
+
+
+                    {/* Authors - start*/}
+                        <Route exact path="/authors/call-for-contribution">
+                            <CallForContriBution />
+                        </Route>
+                        <Route exact path="/authors/Guidlines">
+                            <Guidlines/>
+                        </Route>
+                        <Route exact path="/authors/Paper-Submission">
+                            <Submission />
+                        </Route>
+                        <Route exact path="/authors/Important-Dates">
+                            <Dates />
+                        </Route>
+                    {/* Authors - end*/}
+
+
+                    {/* Programs - start*/}
+                        <Route exact path="/programs/Keynotes">
+                            <Keynotes />
+                        </Route>
+                        <Route exact path="/programs/Paper-Presentation">
+                            <PaperPresentation />
+                        </Route>
+                        <Route exact path="/programs/Poster-Presentation">
+                            <PosterPresentation />
+                        </Route>
+                        <Route exact path="/programs/IPS">
+                            <IPS/>
+                        </Route>
+                        <Route exact path="/programs/Schedule">
+                            <Schedule />
+                        </Route>
+                        <Route exact path="/programs/Register">
+                            <Register />
+                        </Route>
+                    {/* Programs - end*/}
+
+
+                    {/* Organisation - start*/}
+                        <Route exact path="/organisation/Org_committee">
+                            <Org_Committee />
+                        </Route>
+                        <Route exact path="/organisation/Adv_committee">
+                            <Adv_Committee/>
+                        </Route>
+                    {/* Organisation - end*/}
+
+
+                    {/* Local Info - start*/}
+                        <Route exact path="/localInfo/venue">
+                            <Venue/>
+                        </Route>
+                        <Route exact path="/localInfo/location">
+                            <Location/>
+                        </Route>    
+                        <Route exact path="/localInfo/accessing">
+                            <Accessing/>
+                        </Route>
+                    {/* Local Info - end*/}
+
+
+                    {/* Gallery - start*/}
+                        <Route exact path="/gallery">
+                            <Gallery />
+                        </Route>
+                    {/* Gallery - end*/}
+
+
+                    {/* About - start*/}
+                        <Route exact path="/about">
+                            <About />
+                        </Route>
+                    {/* About - end*/}
+
+
+                    {/* Contact - start*/}
+                        <Route exact path="/contact">
+                            <Contact />
+                        </Route>
+                    {/* Contact - end*/}
+
+
+                    {/* Admin - start*/}
+                        <Route exact path="/Admin">
+                            <Login/>
+                        </Route>
+                    {/* Admin - end*/}
+                    <Route exact path="/Test">
+                            <ENotification/>
                         </Route>
 
-                    <Route path="/call-for-contribution">
-                        <CallForContriBution />
-                    </Route>
-                    <Route path="/Guidlines">
-                        <Guidlines/>
-                    </Route>
-                    <Route path="/Paper-Submission">
-                        <Submission />
-                    </Route>
-                    <Route path="/venue">
-                        <Venue/>
+                    {/* Tmp AdminPanel - start*/}
+                        <Route exact path="/AdminPanel">
+                            <AdminPanel/>
                         </Route>
-                    <Route path="/location">
-                        <Location/>
-                        </Route>    
-                    <Route path="/accessing">
-                        <Accessing/>
-                        </Route>    
-                    <Route path="/Important-Dates">
-                        <Dates />
-                    </Route>
-                    <Route path="/Keynotes">
-                        <Keynotes />
-                    </Route>
-                    <Route path="/Paper-Presentation">
-                        <PaperPresentation />
-                    </Route>
-                    <Route path="/Poster-Presentation">
-                        <PosterPresentation />
-                    </Route>
-                    <Route path="/Org_committee">
-                        <Org_Committee />
-                    </Route>
-                    <Route path="/Adv_committee">
-                        <Adv_Committee/>
-                    </Route>
-
-                    <Route path="/Schedule">
-                        <Schedule />
-                    </Route>
-                    <Route path="/Register">
-                        <Register />
-                    </Route>
+                    {/* tmp AdminPanel - end*/}
 
 
-
-                    <Route path="/">
-                        <Home />
-                    </Route>
+                    {/* Random Route - start*/}
+                        <Route path="*">
+                            <Home />
+                        </Route>
+                    {/* Random Route - end*/}
+                     
                 </Switch>
             </div>
         )
