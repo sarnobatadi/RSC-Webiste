@@ -3,7 +3,7 @@ import MainPage from './pages/MainPage';
 import axios from 'axios';
 
 //axios.defaults.baseURL = "https://wcersc.herokuapp.com/"
-axios.defaults.baseURL = "http://localhost:5000/"
+axios.defaults.baseURL = "https://wcersc.herokuapp.com/"
 export const baseUrl = axios.defaults.baseURL
 
 function App() {
