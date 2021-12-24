@@ -41,6 +41,11 @@ function Navbar() {
                     </Link>
                   </li>
                   <li>
+                    <Link  to="/authors/downloads" onClick={() => setActiveComponent("authors")}>
+                     Downloads <span style={{marginLeft:"10px"}}><i className="fa fa-bullhorn"></i></span>
+                    </Link>
+                  </li>
+                  <li>
                     <Link  to="/authors/Guidlines" onClick={() => setActiveComponent("authors")}>
                       Submission Guidlines<span style={{marginLeft:"10px"}}><i className="fa fa-info-circle"></i></span>
                     </Link>
@@ -55,9 +60,9 @@ function Navbar() {
                       Important Dates<span style={{marginLeft:"10px"}}><i className="fa fa-calendar"></i></span>
                     </Link>
                   </li>
-                  <li><a href="../asset/latex.zip">LaTeX Template<span style={{marginLeft:"10px"}}><i className="fa fa-file"></i></span></a></li>
-                  <li><a href="../asset/word.zip">Word Template<span style={{marginLeft:"10px"}}><i className="fa fa-file"></i></span></a>
-                  </li>
+                  {/* <li><a href="../asset/latex.zip">LaTeX Template<span style={{marginLeft:"10px"}}><i className="fa fa-file"></i></span></a></li>
+                  <li><a href="../asset/word.zip">Word Template<span style={{marginLeft:"10px"}}><i className="fa fa-file"></i></span></a> </li>*/}
+                  
                 </ul>
               </li>
               {/* Authors - end */}
