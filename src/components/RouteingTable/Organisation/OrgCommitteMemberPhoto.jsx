@@ -19,7 +19,7 @@ export default class OrgCommitteMemberPhoto extends Component {
                                 </div>
                                 {/* <!-- Memebr Words --> */}
                                 <div className="member-info">
-                                    <p style= {{whiteSpace :'pre-line'}}><storng style={{fontWeight:'700'}}>{ "Prof. P. H. Sawanta"}</storng>{"\nDirector, Walchand College of Engineering, Sangli"} </p>
+                                    <p style= {{whiteSpace :'pre-line'}}><storng style={{fontWeight:'700'}}>{ "Prof. P. H. Sawant"}</storng>{"\nDirector, Walchand College of Engineering, Sangli"} </p>
                                 </div>
                             </div>
                         </div>
@@ -33,7 +33,7 @@ export default class OrgCommitteMemberPhoto extends Component {
                                 </div>
                             
                                 <div className="member-info">
-                                    <p style= {{whiteSpace :'pre-line'}}><storng style={{fontWeight:'700'}}>{"Prof.B.S. Bisht"}</storng>{"\nPresident of FATER Academy of India (FAI)"}</p>
+                                    <p style= {{whiteSpace :'pre-line'}}><storng style={{fontWeight:'700'}}>{"Prof. B.S. Bisht"}</storng>{"\nPresident of FATER Academy of India (FAI)"}</p>
                                 </div>
                             </div>
                         </div>

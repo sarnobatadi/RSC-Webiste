@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import PageBanner from '../PageBanner';
 import org from '../../../JSON/Organisation/organinsing.json';
 import axios from 'axios';
@@ -10,7 +10,7 @@ import OrgCommitteMemberPhoto from './OrgCommitteMemberPhoto';
 
 function Org_Committee() {
     const [convertedJSON, setConvertedJSON] = useState([])
-    
+
     const [allData, setAllData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [maintenanceBreakMessageStatus, setMaintenanceBreakMessageStatus] = useState(false);
@@ -23,11 +23,11 @@ function Org_Committee() {
 
 
 
-   
-    
-    
-    
-    
+
+
+
+
+
     // useEffect(() => {
     //     console.log('start of useEffect')
     //    setAllData(org);
@@ -42,9 +42,9 @@ function Org_Committee() {
         const getData = async () => {
             await axios.get(
                 "get/organization"
-            ).then((response)=>{
-                if(response.data){
-                    setAllData(response.data[0]); 
+            ).then((response) => {
+                if (response.data) {
+                    setAllData(response.data[0]);
                     convertDataToTableFormat(response.data[0].organsingList)
                     //console.log(response)
                 } else {
@@ -52,32 +52,32 @@ function Org_Committee() {
                     setMaintenanceBreakMessageHead("Problem in Fetching data")
                     setMaintenanceBreakMessageContent("Please Contact admin for details")
                 }
-            }).catch((e)=>{
-             /* HANDLE THE ERROR (e) */
+            }).catch((e) => {
+                /* HANDLE THE ERROR (e) */
                 console.log(e);
                 setMaintenanceBreakMessageStatus(true);
                 setMaintenanceBreakMessageHead("Problem in Fetching data")
                 setMaintenanceBreakMessageContent("Please Contact admin for details")
-                
+
             });
-            
+
         };
         getData();
         setIsLoading(false);
         console.log("end of api")
         console.log(allData)
-    },[])
+    }, [])
 
     useEffect(() => {
-        if(!isLoading){
-            if(allData.maintenanceBreakStatus){
-                setToShow(false); 
-                setMaintenanceBreakMessageStatus(allData.maintenanceBreakStatus) 
+        if (!isLoading) {
+            if (allData.maintenanceBreakStatus) {
+                setToShow(false);
+                setMaintenanceBreakMessageStatus(allData.maintenanceBreakStatus)
                 setMaintenanceBreakMessageHead(allData.maintenanceBreakHeading)
-                setMaintenanceBreakMessageContent(allData.maintenanceBreakContent) 
+                setMaintenanceBreakMessageContent(allData.maintenanceBreakContent)
             } else {
                 setToShow(true);
-                if(allData.displayNoticeStatus){
+                if (allData.displayNoticeStatus) {
                     setDisplayNoticeStatus(allData.displayNoticeStatus)
                     setDisplayNoticeHead(allData.displayNoticeHeading)
                     setDisplayNoticeContent(allData.displayNoticeContent)
@@ -88,25 +88,25 @@ function Org_Committee() {
         }
         console.log("all data use Effect")
     }, [allData])
-    
+
     useEffect(() => {
         console.log(convertedJSON)
     }, [convertedJSON])
     const convertDataToTableFormat = (obj_list) => {
-        let i=1;
-        var li =[]
-        obj_list.map((obj)=>{
+        let i = 1;
+        var li = []
+        obj_list.map((obj) => {
             let r = obj.role
-            obj.persons.map((per)=>{
-                li.push({id:i,"role":r,"name":per.name,"designation":per.designation})
-                i=i+1;
-                r=""
+            obj.persons.map((per) => {
+                li.push({ id: i, "role": r, "name": per.name, "designation": per.designation })
+                i = i + 1;
+                r = ""
             })
-           
+
         })
         setConvertedJSON(li)
     }
-    
+
     return (
         <div>
             {/* PageBanner - start */}
@@ -118,8 +118,8 @@ function Org_Committee() {
 
                         {/* Main Content - start */}
                         <div className="col-md-12">
-                            <h1 className="accent-color"> Organising Committee</h1>
-                            <br/>
+
+                            <br />
 
                             <OrgCommitteMemberPhoto />
 
@@ -129,45 +129,47 @@ function Org_Committee() {
                                     <div>Loading</div>
                                 ) : (
                                     <>
-                                    {
-                                        toShow ? (
-                                            <>
-                                                {
-                                                    displayNoticeStatus ? (
-                                                        <DisplayNotice heading={displayNoticeHead} message={displayNoticeContent} />
-                                                    ) : null
-                                                }
-                                    
-                                                <table className="table table-responsive table-condensed table-bordered" style={{padding:"1%"}}>
-                                                    <thead>
-                                                        <th>Role</th>
-                                                        <th>Name</th>
-                                                        <th>Designation</th>
-                                                    </thead>
-                                                
-                                                    <tbody>
-                                                        {
-                                                            convertedJSON && convertedJSON.map((Entry) => (
-                                                            <tr key={Entry.id}>
-                                                                    <td>{Entry.role}</td>
-                                                                    <td>{Entry.name}</td>
-                                                                    <td>{Entry.designation}</td>
-                                                                </tr>
-                                                            ))
-                                                        }
-                                                    </tbody>
-                                                </table>
-                                            </>
-                                        ) : (
-                                            <MaintenanceBreak heading={maintenanceBreakMessageHead} message={maintenanceBreakMessageContent}/>
-                                        )
-                                    }
-                            
-                                   
+                                        {
+                                            toShow ? (
+                                                <>
+                                                    {
+                                                        displayNoticeStatus ? (
+                                                            <DisplayNotice heading={displayNoticeHead} message={displayNoticeContent} />
+                                                        ) : null
+                                                    }
+                                                    <div className="big-title text-center">
+                                                        <h1 className='classic-title' ><span style={{ fontWeight: "700" }}>Organising Committee</span></h1>
+                                                    </div>
+                                                    <table className="table table-responsive table-condensed table-bordered" style={{ padding: "1%" }}>
+                                                        <thead>
+                                                            <th>Role</th>
+                                                            <th>Name</th>
+                                                            <th>Designation</th>
+                                                        </thead>
+
+                                                        <tbody>
+                                                            {
+                                                                convertedJSON && convertedJSON.map((Entry) => (
+                                                                    <tr key={Entry.id}>
+                                                                        <td>{Entry.role}</td>
+                                                                        <td>{Entry.name}</td>
+                                                                        <td>{Entry.designation}</td>
+                                                                    </tr>
+                                                                ))
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </>
+                                            ) : (
+                                                <MaintenanceBreak heading={maintenanceBreakMessageHead} message={maintenanceBreakMessageContent} />
+                                            )
+                                        }
+
+
                                     </>
                                 )
                             }
-                            
+
                         </div>
                         {/* Main Content - end */}
 
