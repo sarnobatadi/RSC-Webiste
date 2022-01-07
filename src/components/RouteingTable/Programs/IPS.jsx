@@ -13,15 +13,16 @@ function IPS()
                 <div className="container">
                    <div class="project-page row">
 
-                        {/* <div className="col-md-12"> */}
-                            {/* <div className="row">
+                        <div className="col-md-12"> 
+                            <div className="row">
                                 <div className="col-sm-12">
                                     <div className="alert alert-success alert-dismissible">    
                                         <h3>More Information Will Be Displayed Soon! Stay Tuned For Updates.</h3>
                                     </div>
                                 </div>
-                            </div> */}
-                            <div class="project-page row">
+                            </div>
+                        </div>
+                            {/* <div class="project-page row">
                                 <div class="project-media col-md-8">
                                     <div class="touch-slider project-slider">
                                         <div class="item">
@@ -44,9 +45,7 @@ function IPS()
                                         </div>
                                     </div>
                                 </div>
-                                {/* <!-- End Single Project Slider --> */}
-                                
-                                {/* <!-- Start Project Content --> */}
+                               
                                 <div class="project-content col-md-4">
                                     <h4><span>Project Description</span></h4>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed facilisis purus. Donec interdum massa at ipsum vehicula tristique. Maecenas bibendum dictum tincidunt. Sed nec justo ac libero consequat tincidunt. Cras eget molestie justo.</p>
@@ -65,12 +64,10 @@ function IPS()
                                         <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
                                     </div>
                                 </div>
-                                {/* <!-- End Project Content --> */}
+                              
                                 
-                            </div>
-{/*                             
-                            <!-- Start Recent Projects Carousel --> */}
-                            <div class="recent-projects">
+                            </div> */}
+                            {/* <div class="recent-projects">
                                 <h4 class="title"><span>Recent Projects</span></h4>
                                 <div class="projects-carousel touch-carousel">
                                     
@@ -288,8 +285,7 @@ function IPS()
                                     </div>
                                     
                                 </div>
-                            </div>
-                        {/* </div> */}
+                            </div> */}
                         <div className="col-md-3 sidebar right-sidebar">
                             <div className="widget widget-categories">
                                 <h4>Related Links <span className="head-line"></span></h4>

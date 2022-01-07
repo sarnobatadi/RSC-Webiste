@@ -22,7 +22,7 @@ import EOrgComCopy from './Committe/EOrgComCopy';
 export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
 
-    const [activeComponent, setActiveComponent] = useState("home")
+    const [activeComponent, setActiveComponent] = useState("callForContribution")
 
     return (
         <div>
@@ -54,7 +54,7 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
                         {/* Related Links - start */}
                         <div className="col-md-3 sidebar right-sidebar">
-                            <div className="widget widget-categories">
+                            {/* <div className="widget widget-categories">
                                 <h4 className='accent-color'>Home<span className="head-line"></span></h4>
                                 <ul>
                                     <li>
@@ -72,7 +72,7 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                   
 
                                 </ul>
-                            </div>
+                            </div> */}
 
                             <div className="widget widget-categories">
                                 <h4 className='accent-color'>Author<span className="head-line"></span></h4>
@@ -114,14 +114,11 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                     <li>
                                         <a onClick={() => setActiveComponent("orgCommitte")} style={{cursor:"pointer"}}>Organising Committe</a>
                                     </li>
-                                    <li>
-                                        <a onClick={() => setActiveComponent("orgCommittecopy")} style={{cursor:"pointer"}}>Organising Committe Copy</a>
-                                    </li>
-
+                                   
                                 </ul>
                             </div>
                             <div className="widget widget-categories">
-                                <h4 className='accent-color'>Images<span className="head-line"></span></h4>
+                                <h4 className='accent-color'>Images(Incomplete)<span className="head-line"></span></h4>
                                 <ul>
                                     <li>
                                         <a onClick={() => setActiveComponent("slider")} style={{cursor:"pointer"}}>Slider Images</a>
@@ -182,7 +179,6 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                 {/* programs start */}
                                 <EAdvCom name='advisoryCommitte' />
                                 <EOrgCom name='orgCommitte'/>
-                                 <EOrgComCopy name='orgCommittecopy'/>
                                 {/* programs end */}
 
 

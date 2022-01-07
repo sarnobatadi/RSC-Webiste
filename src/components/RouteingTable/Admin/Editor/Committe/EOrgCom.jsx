@@ -1,94 +1,13 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, Fragment, useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
-import data from "../../../../../JSON/org_com.json";
+//import data from "../../../../../JSON/org_com.json";
 import axios from "axios";
-
-const EditableRow = ({
-    editFormData,
-    handleEditFormChange,
-    handleCancelClick,
-}) => {
-    return (
-        <tr>
-            <td>
-                <input
-                    className="email"
-                    type="text"
-                    required="required"
-                    placeholder="Enter Name"
-                    name="role"
-                    value={editFormData.role}
-                    onChange={handleEditFormChange}
-                ></input>
-            </td>
-            <td>
-                <input
-                    className="email"
-                    type="text"
-                    required="required"
-                    placeholder="Enter Name"
-                    name="name"
-                    value={editFormData.name}
-                    onChange={handleEditFormChange}
-                ></input>
-            </td>
-            <td>
-                <input
-                    className="email"
-                    type="text"
-                    required="required"
-                    placeholder="Enter Name"
-                    name="designation"
-                    value={editFormData.designation}
-                    onChange={handleEditFormChange}
-                ></input>
-            </td>
+import { NoticeBoard } from "../../NoticeBoard";
 
 
-
-
-            <td>
-                <button type="submit" className="btn btn-success" >Save</button>
-                <button type="button" onClick={handleCancelClick} style={{ marginLeft: '4%' }} className="btn btn-secondary" >
-                    Cancel
-                </button>
-            </td>
-        </tr>
-    );
-};
-
-const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick, convertedJSON }) => {
-    return (
-        <tr key={contact._id}>
-            <td>{contact.role}</td>
-            <td>{contact.name}</td>
-            <td>{contact.designation}</td>
-            <td>
-                <button
-                    className="btn btn-primary"
-                    type="button"
-                    onClick={(event) => handleEditClick(event, contact)}
-                >
-                    Edit
-                </button>
-                <button
-                    className="btn btn-secondary"
-                    type="button" onClick={() => handleDeleteClick(contact._id)} style={{ marginLeft: '4%' }}>
-                    Delete
-                </button>
-            </td>
-
-        </tr>
-
-
-    );
-};
 
 
 const EOrgCom = () => {
-    const [contacts, setContacts] = useState(data);
-    const [convertedJSON, setConvertedJSON] = useState([])
-
 
     const [allData, setAllData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -104,6 +23,22 @@ const EOrgCom = () => {
     const [finalData, setFinalData] = useState();
     const [finalMessage, setFinalMessage] = useState("");
 
+    const [formInputContent, setFormInputContent] = useState({
+        _id: null,
+        name: "",
+        roleId:null,
+        designation:"",
+        prevRoleId:null
+    })
+
+    const [newRole, setNewRole] = useState("");
+    const EditFormFocus = () => {
+        const htmlElRef = useRef(null)
+        const setFocus = () => {htmlElRef.current &&  htmlElRef.current.focus()}
+
+        return [ htmlElRef, setFocus ] 
+    }
+    const [editFormRef, setEditFormRef] = EditFormFocus()
 
     useEffect(() => {
         const getData = async () => {
@@ -132,6 +67,7 @@ const EOrgCom = () => {
 
     useEffect(() => {
         if(!isLoading){
+            setOrgansingList(allData.organsingList)
             setDisplayNotice(allData.displayNoticeStatus)
             setDisplayeNoticeHead(allData.displayNoticeHeading)
             setDisplayeNoticeContent(allData.displayNoticeContent)
@@ -141,21 +77,21 @@ const EOrgCom = () => {
             console.log('end of if')
             console.log(allData)
             if(allData.organsingList){
-                let tmp = []
                 let roles =[]
                 allData.organsingList.map((roleLi)=>{
-                    let role = roleLi.role
-                    roles.push(role)
-                    roleLi.persons.map( person => {
-                        tmp.push({
-                            ...person,
-                            role : role
-                        })
+                    roles.push({
+                        _id : roleLi._id,
+                        role: roleLi.role
                     })
-
                 })
                 setRolesList(roles)
-                setOrgansingList(tmp)
+                setFormInputContent({
+                    _id: null,
+                    name: "",
+                    roleId:roles[0]._id,
+                    designation:"",
+                    prevRoleId:null
+                })
             }
             setIsLoading(false);
         }
@@ -166,125 +102,200 @@ const EOrgCom = () => {
     }, [isLoading,organsingList])
 
 
-    // useEffect(() => {
-    //     if(finalData){
-    //         console.log('useE')
-    //         console.log(finalData)
-    //         uploadContent()
-    //     }
-    // }, [finalData])
+    useEffect(() => {
+        if(finalData){
+            console.log('useE')
+            console.log(finalData)
+            uploadContent()
+        }
+    }, [finalData])
 
-  
-
-
-    const [addFormData, setAddFormData] = useState({
-        name: "",
-        role:"",
-        designation:""
-    });
-
-    const [editFormData, setEditFormData] = useState({
-        name: "",
-        role:"",
-        designation:""
-
-    });
-
-    const [editContactId, setEditContactId] = useState(null);
-
-    const handleAddFormChange = (event) => {
-        event.preventDefault();
-
+    const handleFormChange = (event) => {
         const fieldName = event.target.getAttribute("name");
         const fieldValue = event.target.value;
-        console.log(event.target,event.target.value)
-        const newFormData = { ...addFormData };
+        const newFormData = { ...formInputContent };
         newFormData[fieldName] = fieldValue;
-
-        setAddFormData(newFormData);
+        console.log("new",newFormData)
+        setFormInputContent(newFormData);
     };
 
-    const handleEditFormChange = (event) => {
+    const handleFormSubmit = (event) => {
         event.preventDefault();
-
-        const fieldName = event.target.getAttribute("name");
-        const fieldValue = event.target.value;
-
-        const newFormData = { ...editFormData };
-        newFormData[fieldName] = fieldValue;
-
-        setEditFormData(newFormData);
+        let newOrgansingList =[];
+        if(formInputContent._id == null)
+        {
+            organsingList.map(roleLi => {
+                if( roleLi._id == formInputContent.roleId ){
+                    let tmp = roleLi
+                    tmp.persons.push({_id:nanoid() , name: formInputContent.name, designation: formInputContent.designation})
+                    newOrgansingList.push(tmp)
+                }
+                else{
+                    newOrgansingList.push(roleLi)
+                }
+            })
+        } 
+        else {
+            if(formInputContent.roleId === formInputContent.prevRoleId)
+            {
+                organsingList.map(roleLi => {
+                    if( roleLi._id == formInputContent.roleId ){
+                        let tmp = {...roleLi}
+                        const index = tmp.persons.findIndex((person) => person._id === formInputContent._id);
+                        tmp.persons.splice(index, 1,{ _id:formInputContent._id,name: formInputContent.name,designation: formInputContent.designation});
+                        newOrgansingList.push(tmp)
+                        console.log(tmp)
+                    }
+                    else{
+                        newOrgansingList.push(roleLi)
+                    }
+                })
+            }
+            else{
+                organsingList.map(roleLi => {
+                    if( roleLi._id === formInputContent.prevRoleId ){
+                        let tmp = {...roleLi}
+                        const index = tmp.persons.findIndex((person) => person._id === formInputContent._id);
+                        tmp.persons.splice(index, 1);
+                        newOrgansingList.push(tmp)
+                        console.log(tmp)
+                    }
+                    else if(formInputContent.roleId == roleLi._id){
+                        let tmp = {...roleLi}
+                        tmp.persons.push({_id:formInputContent._id,name: formInputContent.name,designation: formInputContent.designation})
+                        newOrgansingList.push(tmp)
+                        console.log(tmp)
+                    }
+                    else{
+                        newOrgansingList.push(roleLi)
+                    }
+                })
+            }
+            
+        }
+        
+        setFormInputContent({
+            _id: null,
+            name: "",
+            roleId:rolesList[0]._id,
+            designation:"",
+            prevRoleId:null
+        })
+        setOrgansingList(newOrgansingList);
+       
     };
-
-    const handleAddFormSubmit = (event) => {
-        event.preventDefault();
-
-        const newContact = {
-            _id: nanoid(),
-            name: addFormData.name,
-            role:addFormData.role,
-            designation:addFormData.designation
-
-
-        };
-
-        const newContacts = [...organsingList, newContact];
-        setOrgansingList(newContacts);
-    };
-
-    const handleEditFormSubmit = (event) => {
-        event.preventDefault();
-
-        const editedContact = {
-            _id: editContactId,
-            name: editFormData.name,
-            role:editFormData.role,
-            designation:editFormData.designation
-
-
-        };
-
-        const newContacts = [...organsingList];
-
-        const index = organsingList.findIndex((contact) => contact._id === editContactId);
-
-        newContacts[index] = editedContact;
-
-        setOrgansingList(newContacts);
-        setEditContactId(null);
-    };
-
-    const handleEditClick = (event, contact) => {
-        event.preventDefault();
-        setEditContactId(contact._id);
-
-        const formValues = {
-            name: contact.name,
-            role: contact.role,
-            designation:contact.designation
-        };
-
-        setEditFormData(formValues);
-    };
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        //console.log(contacts);
-
+    const handleEdit = (personData)=> {
+        setFormInputContent(personData);
+        setEditFormRef()
     }
 
-    const handleCancelClick = () => {
-        setEditContactId(null);
+    const handleDelete = (roleId,personId = null) => {
+        let newOrgansingList = []
+        organsingList.map((roleLi) =>{
+            if(roleLi._id === roleId){
+                let tmp = {...roleLi}
+                const index = tmp.persons.findIndex((person) => person._id === personId);
+                tmp.persons.splice(index, 1);
+                newOrgansingList.push(tmp)
+            }
+            else{
+                newOrgansingList.push(roleLi)
+            }
+        })
+        setOrgansingList(newOrgansingList);
     };
 
-    const handleDeleteClick = (contactId) => {
-        const newContacts = [...organsingList];
+    const handleAddNewRole = () => {
+        let r = newRole.trim()
+        let v = [...rolesList]
+        rolesList.map(role => {
+            if(role.role === r){
+                alert("Inputed Role already exists in database");
+                r=""
+            }
+        })
+        if(r){
+            let t = {role:r,_id:nanoid() }
+            v.push(t)
+            setRolesList(v)
+            let tmpOrgansingList = [...organsingList ]
+            tmpOrgansingList.push({role:r,persons:[],_id:t._id})
+            setOrgansingList(tmpOrgansingList)
+        }
+        setNewRole("")
+    }
 
-        const index = organsingList.findIndex((contact) => contact._id === contactId);
+    const handleRoleUp = (roleParameter) => {
+        let tmpRoleList = [...rolesList]
+        let tmpOrgansingList = [...organsingList ]
+        const index = tmpRoleList.findIndex((role) => role._id === roleParameter._id);
+        if(index!==0){
+            let tmp = tmpOrgansingList[index]
+            tmpRoleList.splice(index, 1);
+            tmpOrgansingList.splice(index,1)
+            tmpRoleList.splice(index-1, 0,{...roleParameter});
+            tmpOrgansingList.splice(index-1, 0,{...tmp})
+            setRolesList(tmpRoleList)
+            setOrgansingList(tmpOrgansingList)
+        }
+    }
 
-        newContacts.splice(index, 1);
+    const handleRoleDown = (roleParameter) => {
+        let tmpRoleList = [...rolesList]
+        let tmpOrgansingList = [...organsingList ]
+        const index = tmpRoleList.findIndex((role) => role._id === roleParameter._id);
+        if(index!==tmpRoleList.length){
+            let tmp = tmpOrgansingList[index]
+            tmpRoleList.splice(index, 1);
+            tmpOrgansingList.splice(index,1)
+            tmpRoleList.splice(index+1, 0,{...roleParameter});
+            tmpOrgansingList.splice(index+1, 0,{...tmp})
+            setRolesList(tmpRoleList)
+            setOrgansingList(tmpOrgansingList)
+        }
+    }
 
-        setOrgansingList(newContacts);
-    };
+    const endFormater = () => {
+        let orglist = []
+        organsingList.map((orgRole)=>{
+            let  a = []
+            orgRole.persons.map((person)=>{
+                a.push({name: person.name, designation:person.designation})
+            })
+            if(a.length){
+                orglist.push({role:orgRole.role,persons:a})
+            }
+        })
+        const final = {
+            "displayNoticeStatus":displayNotice,
+            "displayNoticeHeading":displayeNoticeHead,
+            "displayNoticeContent":displayeNoticeContent,
+            "maintenanceBreakStatus":maintainanceBreak,
+            "maintenanceBreakHeading":maintainanceBreakHead,
+            "maintenanceBreakContent":maintainanceBreakContent,
+            "organsingList":orglist
+        }
+        setFinalData(final)
+        console.log('Final data')
+        console.log(finalData)
+    }
+
+
+
+    const uploadContent = () => {
+        const headers = { 
+            'x-access-token': localStorage.getItem("x-access-token")
+        };
+        axios.put('put/organization/617ff298460d102107fa5248', finalData, { headers })
+            .then(response => console.log(response));
+        //console.log('aaaa')
+        //console.log(finalMessage)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        endFormater()
+    }
 
     return (
         <div>
@@ -300,7 +311,8 @@ const EOrgCom = () => {
                                     <div>loading...</div>
                                 ) : (
                                     <div className="EOrgCom-container">
-                                        <form onSubmit={handleEditFormSubmit}>
+
+                                        <form onSubmit={handleFormSubmit}>
                                             <table className="table table-responsive table-condensed table-bordered">
                                                 <thead>
                                                     <tr>
@@ -315,23 +327,42 @@ const EOrgCom = () => {
                                                         allData && organsingList ? (
                                                             <>
                                                             {
-                                                                organsingList.map((contact) => (
-                                                                    <Fragment key={contact._id}>
-                                                                        {editContactId === organsingList._id ? (
-                                                                            <EditableRow
-                                                                                editFormData={editFormData}
-                                                                                handleEditFormChange={handleEditFormChange}
-                                                                                handleCancelClick={handleCancelClick}
-                                                                            />
-                                                                        ) : (
-                                                                            <ReadOnlyRow
-                                                                                contact={contact}
-                                                                                handleEditClick={handleEditClick}
-                                                                                handleDeleteClick={handleDeleteClick}
-                                                                                convertedJSON={convertedJSON}
-                                                                            />
-                                                                        )}
-                                                                    </Fragment>
+                                                                organsingList.map((roleli) => (
+                                                                    <>
+                                                                        
+                                                                        {
+                                                                            roleli.persons.map((li)=>(
+                                                                                <tr key={li._id}>
+                                                                                    <td>{roleli.role}</td>
+                                                                                    <td>{li.name}</td>
+                                                                                    <td>{li.designation}</td>
+                                                                                    <td >
+                                                                                        <button
+                                                                                            className="btn btn-primary"
+                                                                                            type="button"
+                                                                                            onClick={() => handleEdit( {...li, roleId : roleli._id, prevRoleId : roleli._id})}
+                                                                                        >
+                                                                                            Edit
+                                                                                        </button>
+                                                                                        <button
+                                                                                            className="btn btn-secondary"
+                                                                                            type="button" 
+                                                                                            onClick={() => handleDelete(roleli._id,li._id)} 
+                                                                                            style={{ marginTop: '4%' }}
+                                                                                            >
+                                                                                            Delete
+                                                                                        </button>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            ))
+                                                                        }
+                                                                        <tr style={{backgroundColor:"#38cbcb"}}>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </>
                                                                 ))
                                                                 }
                                                             </>
@@ -346,58 +377,146 @@ const EOrgCom = () => {
                                             </table>
                                         </form>
                                         <br />
-                                        <h2>Add a New Entry</h2>
-                                        <br />
-                                        <form onSubmit={handleAddFormSubmit} style={{ justifyContent: 'space-between' }}>
-                                                {/* <input
-                                                    className="email"
-                                                    
-                                                    type="text"
-                                                    name="role"
-                                                    required="required"
-                                                    placeholder="Enter a role"
-                                                    onChange={handleAddFormChange}
-                                                /> */}
-                                                    <input
-                                                    className="email"
-                                                     style={{ maxWidth: '100%' }}
-                                                    type="text"
-                                                    name="name"
-                                                    required="required"
-                                                    placeholder="Enter a name"
-                                                    onChange={handleAddFormChange}
-                                                />
-                                                    <input
-                                                    className="email"
-                                                    style={{ maxWidth: '100%' }}
-                                                    type="text"
-                                                    name="designation"
-                                                    required="required"
-                                                    placeholder="Enter a designation"
-                                                    onChange={handleAddFormChange}
-                                                /> 
-                                                {
-                                                    rolesList ? (
-                                                        <>
-                                                            <select className="email" id="cars" name="role" required onChange={handleAddFormChange}>
-                                                                {
-                                                                    rolesList.map((role)=> <option value={role}>{role}</option>)
-                                                                }
-                                                            </select>
-                                                        </>
-                                                    ) : (
-                                                        <option value="A">A</option>
-                                                    )
-                                                }
+                                        
+                                        <h3 className="classic-title"><span>Add a New Entry</span></h3>
+                                        <form onSubmit={handleFormSubmit} style={{ justifyContent: 'space-between',marginBottom:"5%" }}>   
+                                            {
+                                                formInputContent.name ? (
+                                                    <label>Name</label>
+                                                ) : null
+                                            }
+                                            
+                                            <input
+                                                className="email"
+                                                style={{ maxWidth: '100%' }}
+                                                type="text"
+                                                name="name"
+                                                required="required"
+                                                placeholder="Enter a name"
+                                                onChange={handleFormChange}
+                                                value={formInputContent.name}
+                                                ref={editFormRef}
+                                            />
+                                            {
+                                                formInputContent.designation ? (
+                                                    <label>Designation</label>
+                                                ) : null
+                                            }
+                                            
+                                            <input
+                                                className="email"
+                                                style={{ maxWidth: '100%' }}
+                                                type="text"
+                                                name="designation"
+                                                required="required"
+                                                placeholder="Enter a designation"
+                                                onChange={handleFormChange}
+                                                value={formInputContent.designation}
+                                            />
+                                            <label>Role </label>
+                                            {
+                                                rolesList ? (
+                                                    <>
+                                                        
+                                                            {
+                                                                rolesList.map((role)=> (
+                                                                    <div className="radio" key={role._id}>
+                                                                        <label>
+                                                                            <input
+                                                                            type="radio"
+                                                                            value={role._id}
+                                                                            name="roleId"
+                                                                            checked={formInputContent.roleId === role._id}
+                                                                            onChange={handleFormChange}
+                                                                            />
+                                                                            {role.role} 
+                                                                           
+                                                                        </label>
+                                                                    </div>
+                                                                ))
+                                                            }
+                                
+                                                    </>
+                                                ) : (
+                                                    <div> Add Roles</div>
+                                                )
+                                            }
+                                                
+                                               
                                                    
                                                 
-                                                <div className=" " style={{ textAlign: 'center', maxWidth: '60%', float: "right"  }}>
-                                            <button type="submit" className="btn btn-primary">Add</button>
-                                        </div>
+                                            <div  style={{ textAlign: 'center' }}>
+                                                <button type="submit" className="btn btn-primary">Add New Entry </button>
+                                            </div>
 
                                         </form>
-                                        <br />
-                                        <br />
+                                        <div style={{margin:"10px"}}>
+                                        <h3 className="classic-title"><span>Add a New Role (<small>You can arrange the order of roles here with arrows</small>)</span></h3>
+                                        <ol>
+                                            {
+                                                rolesList.map((role,id)=> (
+                                                    <li key={role._id}>
+                                                        {role.role} 
+                                                      
+                                                        <span style={{margin:'5px'}}>
+                                                            {
+                                                                id===0? (
+                                                                    <button className="btn btn-primary" style={{margin:'5px'}} disabled><i className="fa fa-arrow-up"></i></button>
+                                                                ): (
+                                                                    <button className="btn btn-primary" style={{margin:'5px'}} onClick={() =>handleRoleUp(role)}><i className="fa fa-arrow-up"></i></button>
+                                                                )
+                                                            }
+                                                            {
+                                                                id===((rolesList.length)-1) ? (
+                                                                    <button className="btn btn-primary" disabled><i className="fa fa-arrow-down" ></i></button>
+                                                                ) : (
+                                                                    <button className="btn btn-primary"><i className="fa fa-arrow-down" onClick={() =>handleRoleDown(role)}></i></button>
+                                                                )
+                                                            }
+                                                            
+                                                            
+                                                        </span>
+                                                       
+                                                    </li>
+                                                ))
+                                            }
+                                        </ol>
+                                        <div>
+                                            {
+                                                newRole ? (
+                                                    <label>New Role</label>
+                                                ) : null
+                                            }
+                                            
+                                            <input
+                                                className="email"
+                                                style={{ maxWidth: '100%' }}
+                                                type="text"
+                                                name="newRole"
+                                                placeholder="Enter a new Role"
+                                                onChange={(e) => setNewRole(e.target.value)}
+                                                value={newRole}
+                                            />
+                                            {
+                                                newRole ? (
+                                                    <div  style={{ textAlign: 'center'  }} onClick={handleAddNewRole}>
+                                                        <button type="button" className="btn btn-primary">Add New Role</button>
+                                                    </div>
+                                                ) : (
+                                                    <div  style={{ textAlign: 'center'  }}>
+                                                        <button type="button" className="btn btn-primary" disabled>Add New Entry</button>
+                                                    </div>
+                                                )
+                                            }
+                                            
+                                        </div>
+                                        </div>
+
+                                        <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
+                                        <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState={displayNotice} noticeStateChange={setDisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
+                                        <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />
+                                                
+                                        
                                         <div style={{ textAlign: 'center', float: "right" }}>
                                             <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
                                         </div>

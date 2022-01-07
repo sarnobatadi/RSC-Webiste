@@ -1,6 +1,6 @@
 import React, { useState, Fragment, useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
-import data from "../../../../../JSON/org_com.json";
+//import data from "../../../../../JSON/org_com.json";
 import axios from "axios";
 import { NoticeBoard } from "../../NoticeBoard";
 
