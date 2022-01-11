@@ -1,8 +1,5 @@
 import React from 'react';
-
 import img from '../../../images/publication/Springer.jpg'
-import imgsrc from '../../../JSON/Images.json';
-import data from '../../../JSON/Home/HomeBody.json';
 
 function Publications() {
     return (

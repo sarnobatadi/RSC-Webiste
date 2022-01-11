@@ -1,11 +1,7 @@
 import React, { useState, Fragment, useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
-//import data from "../../../../../JSON/org_com.json";
 import axios from "axios";
 import { NoticeBoard } from "../../NoticeBoard";
-
-
-
 
 const EOrgCom = () => {
 
@@ -62,8 +58,6 @@ const EOrgCom = () => {
         console.log('end of use Effect')
         console.log(allData)
     },[])
-
-     
 
     useEffect(() => {
         if(!isLoading){
@@ -173,7 +167,6 @@ const EOrgCom = () => {
             }
             
         }
-        
         setFormInputContent({
             _id: null,
             name: "",
@@ -279,8 +272,6 @@ const EOrgCom = () => {
         console.log('Final data')
         console.log(finalData)
     }
-
-
 
     const uploadContent = () => {
         const headers = { 
@@ -523,13 +514,11 @@ const EOrgCom = () => {
                                     </div>
                                 )
                             }
-                           
                         </div>
                     </div>
                 </div>
             </div>
         </div >
-
     );
 };
 

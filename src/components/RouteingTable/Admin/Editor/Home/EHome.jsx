@@ -13,31 +13,17 @@ function EHome() {
 
     const handleChange = evt => {
         const name = evt.target.name;
-        const value = evt.target.value;
-       
+        const value = evt.target.value;  
     }
-
     const handleSubmit = evt => {
         evt.preventDefault();
-    
         //console.log(JSON.stringify(dataToSend));
-
-
-
     }
-
-
     return (
         <div>
-
-
             <h2 className="classic-title"><span>Edit Home Page </span></h2>
-
-
             <form id='login' acceptCharset='UTF-8' onSubmit={handleSubmit}>
-                <input type='hidden' name='submitted' id='submitted' value='1' />
-
-               
+                <input type='hidden' name='submitted' id='submitted' value='1' />      
                 <div className="form-group">
                     <div className="controls">
                         <h3 style={{ marginBottom: '9px' }}>Subhead : </h3>
@@ -81,21 +67,14 @@ function EHome() {
                     <textarea type="text" value={links.support}  name="regLink" className="email"
                         required="required" onChange={(e)=>setLinks({...links,"support":e.target.value})} style={{}} />
                 </div>
-
-
                 <div style={{ textAlign: 'right' }}>
                     <button type="submit" id="submit" className="btn-system btn-large">Update Content</button>
                 </div>
                 <br />
                 <br />
             </form>
-
-
         </div>
-
     );
-
 }
-
 
 export default EHome;

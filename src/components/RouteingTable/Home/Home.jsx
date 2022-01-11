@@ -1,16 +1,8 @@
 import React from 'react';
-import Sponsors from './Sponsors';
 import HomeBody from './HomeBody';
 import Slider from './Slider';
-import ImpDates from './ImpDates';
-import Speakers from './Speakers';
-import Timer from './Timer';
 import CountDown from './Countdown';
 import { Sidebar } from './Sidebar';
-
-
-
-
 
 function Home() {
     

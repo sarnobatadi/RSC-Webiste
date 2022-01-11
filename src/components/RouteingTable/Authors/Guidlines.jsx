@@ -1,8 +1,6 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PageBanner from '../PageBanner';
-import {
-    Link
-} from "react-router-dom";
+import {Link} from "react-router-dom";
 import displayNotice from '../DisplayNotice'
 import guidelines from '../../../JSON/Authors/guidelines.json'
 import MaintenanceBreak from '../MaintenanceBreak';
@@ -15,9 +13,6 @@ function Guidlines() {
     const [peperSubList, setPeperSubList] = useState([]);
     const [toShow, setToShow] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
-
-    
-
 
     useEffect(() => {
         //api call

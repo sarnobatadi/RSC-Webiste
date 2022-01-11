@@ -9,34 +9,21 @@ function EContact() {
     const [website, setWebsite] = useState(data.website);
     const [contact, setContact] = useState(data.contact);
     const [socialLinks, setSocialLinks] = useState(data.socialLinks);
-
     const handleChange = evt => {
         const name = evt.target.name;
         const value = evt.target.value;
 
     }
-
     const handleSubmit = evt => {
         evt.preventDefault();
-
         //console.log(JSON.stringify(dataToSend));
-
-
-
     }
-
 
     return (
         <div>
-
-
             <h2 className="classic-title"><span>Edit Contanct Info</span></h2>
-
-
             <form id='login' acceptCharset='UTF-8' onSubmit={handleSubmit}>
                 <input type='hidden' name='submitted' id='submitted' value='1' />
-
-
                 <div className="form-group col-md-12">
                     <div className="controls">
                         <h3 style={{ marginBottom: '9px' }}>Email : </h3>
@@ -45,13 +32,13 @@ function EContact() {
                     </div>
                 </div>
                
-                    <div className="form-group col-md-12">
-                        <div className="controls">
-                            <h3 style={{ marginBottom: '9px' }}>Website : </h3>
-                            <textarea type="text" value={website} name="para1" className="email"
-                                required="required" onChange={(e) => setWebsite(e.target.value)} style={{maxWidth:'100%'}} />
-                        </div>
+                <div className="form-group col-md-12">
+                    <div className="controls">
+                        <h3 style={{ marginBottom: '9px' }}>Website : </h3>
+                        <textarea type="text" value={website} name="para1" className="email"
+                            required="required" onChange={(e) => setWebsite(e.target.value)} style={{maxWidth:'100%'}} />
                     </div>
+                </div>
                 
                 <div className="col-md-6">
                     <div className="form-group">
@@ -122,10 +109,7 @@ function EContact() {
                 <br />
                 <br />
             </form>
-
-
         </div>
-
     );
 
 }

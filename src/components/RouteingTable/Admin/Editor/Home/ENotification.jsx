@@ -14,11 +14,8 @@ const EditableRow = ({
     handleCancelClick,
 }) => {
     return (
-
         <tr>
-
             <td>
-
                 <input
                     className="email"
                     text="text"
@@ -32,7 +29,6 @@ const EditableRow = ({
                 ></input>
             </td>
             <td>
-
                 <input
                     className="email"
                     text="text"
@@ -43,10 +39,8 @@ const EditableRow = ({
                     value={editFormData.link}
                     onChange={handleEditFormChange}
                 ></input>
-
             </td>
             <td>
-
                 <input
                     className="email"
                     text="text"
@@ -58,8 +52,6 @@ const EditableRow = ({
                     onChange={handleEditFormChange}
                 ></input>
             </td>
-
-
             <td>
                 <button text="submit" class="btn btn-success" >Save</button>
                 <button text="button" onClick={handleCancelClick} style={{ marginLeft: '4%' }} class="btn btn-secondary" >
@@ -111,69 +103,51 @@ const ENotification = () => {
         text: " ",
         link: " ",
         new: " "
-
-
     });
 
     const [editContactId, setEditContactId] = useState(null);
 
     const handleAddFormChange = (event) => {
         event.preventDefault();
-
         const fieldName = event.target.getAttribute("name");
         const fieldValue = event.target.value;
-
         const newFormData = { ...addFormData };
         newFormData[fieldName] = fieldValue;
-
         setAddFormData(newFormData);
     };
 
     const handleEditFormChange = (event) => {
         event.preventDefault();
-
         const fieldName = event.target.getAttribute("name");
         const fieldValue = event.target.value;
-
         const newFormData = { ...editFormData };
         newFormData[fieldName] = fieldValue;
-
         setEditFormData(newFormData);
     };
 
     const handleAddFormSubmit = (event) => {
         event.preventDefault();
-
         const newContact = {
             id: nanoid(),
             text: addFormData.text,
             link: addFormData.link,
             new: addFormData.new
-
         };
-
         const newContacts = [...contacts, newContact];
         setContacts(newContacts);
     };
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
-
         const editedContact = {
             id: editContactId,
             text: editFormData.text,
             link: editFormData.link,
             new: editFormData.new
-
-
         };
-
         const newContacts = [...contacts];
-
         const index = contacts.findIndex((contact) => contact.id === editContactId);
-
         newContacts[index] = editedContact;
-
         setContacts(newContacts);
         setEditContactId(null);
     };
@@ -181,24 +155,19 @@ const ENotification = () => {
     const handleEditClick = (event, contact) => {
         event.preventDefault();
         setEditContactId(contact.id);
-
         const formValues = {
             text: contact.text,
             link: contact.link,
             new: contact.new
         };
-
         setEditFormData(formValues);
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        let datatoSend = {
-           
-            regitrationlink: contacts,
-           
+        let datatoSend = { 
+            regitrationlink: contacts,  
         }
         console.log(datatoSend);
-
     }
    
     const handleCancelClick = () => {
@@ -207,20 +176,14 @@ const ENotification = () => {
 
     const handleDeleteClick = (contactId) => {
         const newContacts = [...contacts];
-
         const index = contacts.findIndex((contact) => contact.id === contactId);
-
         newContacts.splice(index, 1);
-
         setContacts(newContacts);
     };
 
     return (
         <div>
             <h2 className="classic-title" style={{}}><span>Edit Notification</span></h2>
-
-            
-         
             <div className="app-container">
                 <form onSubmit={handleEditFormSubmit}>
                     <table className="table table-responsive table-condensed table-bordered">
@@ -297,16 +260,9 @@ const ENotification = () => {
                 <div className=" " style={{ textAlign: 'right' }}>
                     <button text="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
                 </div>
-
-
                 <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
-               
             </div>
-
-
         </div>
-
-
     );
 };
 

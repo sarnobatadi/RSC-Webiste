@@ -9,7 +9,7 @@ import { DisplayNotice } from '../DisplayNotice';
 
 
 
-function Adv_Committee() {
+function AdvCommittee() {
 
 
 
@@ -167,4 +167,4 @@ function Adv_Committee() {
     );
 }
 
-export default Adv_Committee;
+export default AdvCommittee;

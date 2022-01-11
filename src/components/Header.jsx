@@ -14,9 +14,7 @@ function Header() {
       <div className="top-bar">
         <div className="container">
           <div className="row">
-
             <div className="col-md-9">
-
               <ul className="contact-details">
                 <li><Link to="/contact"><i className="fa fa-map-marker"></i> Walchand College of Engineering, Sangli, MH-IN</Link>
                 </li>
@@ -25,9 +23,7 @@ function Header() {
                 <li><Link to="/contact"><i className="fa fa-phone"></i>   {cdata.contact[0].mobileNumber} | {cdata.contact[1].mobileNumber}  </Link>
                 </li>
               </ul>
-
             </div>
-
             <div className="col-md-3">
               <ul className="social-list" style={{ listStyle: 'none', display: 'block' }}>
                 <li>
@@ -48,8 +44,6 @@ function Header() {
           </div>
         </div>
       </div>
-      
-   
         <div className="container">
           <div style={{ marginBottom: '-4%',display:'flex',justifyContent:'space-between' }} className='headercontainer' >
               <div  className='headerLogo1' >
@@ -63,13 +57,9 @@ function Header() {
               <div  className='headerLogo' >
                 <img src="https://static.wixstatic.com/media/e192f7_f60a1d7e58ba4708b9d94820fe99b0e2~mv2.png/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01/Drawing2.webp" alt="IFERP" style={{  width:'100%',minWidth:"70px" }} />
               </div>
-              
-             
           </div>
         </div>
-
       <Navbar/>
-
     </div>
   );
 }

@@ -23,8 +23,6 @@ const EditableRow = ({
                     onChange={handleEditFormChange}
                 ></input>
             </td>
-
-
             <td>
                 <button type="submit" className="btn btn-success" >Save</button>
                 <button type="button" onClick={handleCancelClick} style={{marginLeft:'4%'}}  className="btn btn-secondary" >
@@ -39,8 +37,6 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
     return (
         <tr>
             <td>{contact.name}</td>
-
-
             <td>
                 <button
                    className="btn btn-primary"
@@ -142,46 +138,36 @@ const EAdvCom = () => {
         
     }, [maintainanceBreak,maintainanceBreakHead,maintainanceBreakContent])
    
-
     const [addFormData, setAddFormData] = useState({
         name: "",
     });
 
     const [editFormData, setEditFormData] = useState({
         name: "",
-
-
     });
 
     const [editContactId, setEditContactId] = useState(null);
 
     const handleAddFormChange = (event) => {
         event.preventDefault();
-
         const fieldName = event.target.getAttribute("name");
         const fieldValue = event.target.value;
-
         const newFormData = { ...addFormData };
         newFormData[fieldName] = fieldValue;
-
         setAddFormData(newFormData);
     };
 
     const handleEditFormChange = (event) => {
         event.preventDefault();
-
         const fieldName = event.target.getAttribute("name");
         const fieldValue = event.target.value;
-
         const newFormData = { ...editFormData };
         newFormData[fieldName] = fieldValue;
-
         setEditFormData(newFormData);
     };
 
     const handleAddFormSubmit = (event) => {
         event.preventDefault();
-
         const newContact = {
             _id: nanoid(),
             name: addFormData.name
@@ -193,18 +179,13 @@ const EAdvCom = () => {
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
-
         const editedContact = {
             _id: editContactId,
             name: editFormData.name
         };
-
         const newContacts = [...advisoryList];
-
         const index = advisoryList.findIndex((contact) => contact._id === editContactId);
-
         newContacts[index] = editedContact;
-
         setAdvisoryList(newContacts);
         setEditContactId(null);
     };
@@ -212,20 +193,15 @@ const EAdvCom = () => {
     const handleEditClick = (event, contact) => {
         event.preventDefault();
         setEditContactId(contact._id);
-
         const formValues = {
             name: contact.name,
-         
-
         };
-
         setEditFormData(formValues);
     };
     const handleSubmit = (e) => {
         e.preventDefault();
         endFormater()
         console.log(advisoryList);
-
     }
 
     const handleCancelClick = () => {
@@ -234,11 +210,8 @@ const EAdvCom = () => {
 
     const handleDeleteClick = (contactId) => {
         const newContacts = [...advisoryList];
-
         const index = advisoryList.findIndex((contact) => contact._id === contactId);
-
         newContacts.splice(index, 1);
-
         setAdvisoryList(newContacts);
     };
 
@@ -260,8 +233,6 @@ const EAdvCom = () => {
         // console.log('Final data')
         // console.log(finalData)
     }
-
-
 
     const uploadContent = () => {
         const headers = { 
@@ -352,9 +323,7 @@ const EAdvCom = () => {
                     </div>
                 )
             }
-            
         </div >
-
     );
 };
 

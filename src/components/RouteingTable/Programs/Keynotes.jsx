@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PageBanner from '../PageBanner';
 import {Link} from "react-router-dom";
 import axios from 'axios'
-import Key from '../../../JSON/Programs/Keynote.json'
 import MaintenanceBreak from '../MaintenanceBreak';
 import { DisplayNotice } from '../DisplayNotice';
 

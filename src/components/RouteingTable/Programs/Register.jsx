@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from 'react';
-
-
 import PageBanner from '../PageBanner';
-
-import regitrationJSON from '../../../JSON/Programs/registration.json'
 import axios from 'axios';
 import { DisplayNotice } from '../DisplayNotice';
 import MaintenanceBreak from '../MaintenanceBreak';
 
 
-
 function Register() {
 
-  
   const [isLoading, setIsLoading] = useState(true);
   const [toShow, setToShow] = useState(true);
-
 
   const [allData, setAllData] = useState([]);
 
@@ -33,11 +26,6 @@ function Register() {
   const [feeWaiverNotice, setFeeWaiverNotice] = useState(null)
   const [bankDetails, setBankDetails] = useState(null)
   const [regitrationFormLink, setRegitrationFormLink] = useState(null)
-
-  
-  
-  
-
 
   useEffect(() => {
     const getData = async () => {

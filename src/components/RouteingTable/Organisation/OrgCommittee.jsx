@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
 import PageBanner from '../PageBanner';
-import org from '../../../JSON/Organisation/organinsing.json';
 import axios from 'axios';
 import MaintenanceBreak from '../MaintenanceBreak';
 import { DisplayNotice } from '../DisplayNotice';
 import OrgCommitteMemberPhoto from './OrgCommitteMemberPhoto';
 
 
-function Org_Committee() {
+function OrgCommittee() {
     const [convertedJSON, setConvertedJSON] = useState([])
 
     const [allData, setAllData] = useState([]);
@@ -195,4 +193,4 @@ function Org_Committee() {
     );
 }
 
-export default Org_Committee;
+export default OrgCommittee;

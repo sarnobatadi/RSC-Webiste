@@ -1,12 +1,8 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { nanoid } from "nanoid";
 
-
 import { NoticeBoard } from "../../NoticeBoard";
 import axios from "axios";
-
-
-
 
 const EditableRow = ({
     editFormData,
@@ -196,7 +192,6 @@ const ERegister = () => {
 
     const handleAddFormSubmit = (event) => {
         event.preventDefault();
-
         const newContact = {
             _id: nanoid(),
             type: addFormData.type,
@@ -214,20 +209,15 @@ const ERegister = () => {
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
-
         const editedContact = {
             _id: editContactId,
             type: editFormData.type,
             fees: editFormData.fees,
             late: editFormData.late
         };
-
         const newContacts = [...regitrationFees];
-
         const index = regitrationFees.findIndex((contact) => contact._id === editContactId);
-
         newContacts[index] = editedContact;
-
         setRegitrationFees(newContacts);
         setEditContactId(null);
     };
@@ -235,13 +225,11 @@ const ERegister = () => {
     const handleEditClick = (event, contact) => {
         event.preventDefault();
         setEditContactId(contact._id);
-
         const formValues = {
             type: contact.type,
             fees: contact.fees,
             late: contact.late
         };
-
         setEditFormData(formValues);
     };
     const handleSubmit = (e) => {
@@ -262,11 +250,8 @@ const ERegister = () => {
 
     const handleDeleteClick = (contactId) => {
         const newContacts = [...regitrationFees];
-
         const index = regitrationFees.findIndex((contact) => contact._id === contactId);
-
         newContacts.splice(index, 1);
-
         setRegitrationFees(newContacts);
     };
 
@@ -289,8 +274,6 @@ const ERegister = () => {
             list.push({"id":i,"type":li.type,"fees":li.fees,'late':li.late});
             i=i+1;
         });
-           
-        
         const final = {
             "displayNoticeStatus":displayNotice,
             "displayNoticeHeading":displayNoticeHead,
@@ -309,8 +292,6 @@ const ERegister = () => {
         }
         setFinalData(final)
     }
-
-
 
     const uploadContent = () => {
         const headers = { 

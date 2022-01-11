@@ -13,8 +13,8 @@ import Keynotes from './RouteingTable/Programs/Keynotes'
 import Schedule from './RouteingTable/Programs/Schedule'
 import IPS from './RouteingTable/Programs/IPS';
 import Register from './RouteingTable/Programs/Register';
-import Org_Committee from './RouteingTable/Organisation/Org_committee'
-import Adv_Committee from './RouteingTable/Organisation/Advisory_committee'
+import OrgCommittee from './RouteingTable/Organisation/OrgCommittee'
+import AdvCommittee from './RouteingTable/Organisation/AdvisoryCommittee'
 import Venue from './RouteingTable/Local/Venue'
 import Location from './RouteingTable/Local/Location'
 import Accessing from './RouteingTable/Local/Accessing'
@@ -82,10 +82,10 @@ export default class RoutingTable extends Component {
 
                     {/* Organisation - start*/}
                         <Route exact path="/organisation/Org_committee">
-                            <Org_Committee />
+                            <OrgCommittee />
                         </Route>
                         <Route exact path="/organisation/Adv_committee">
-                            <Adv_Committee/>
+                            <AdvCommittee/>
                         </Route>
                     {/* Organisation - end*/}
 

@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom";
-import Chair from "../../../images/publication/chair.png";
-import Publications from './Publications';
-import SponsorsOld from './SponsorsOld';
-import data from '../../../JSON/Home/HomeBody.json';
 import axios from 'axios';
 function ImpDates() {
     

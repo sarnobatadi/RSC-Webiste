@@ -1,13 +1,11 @@
 {
     "data":[
-        
         {
             "id":5,
             "text":"Latex Template",
             "link":"../asset/latex.zip",
             "new":"true"
         },
-        
         {
             "id":6,
             "text":"Word Template",
@@ -57,9 +55,5 @@
             "link":"/asset/RSC%202019%20Proceeding.pdf",
             "new":"false"
         }
-
-
-
-        
     ]
 }

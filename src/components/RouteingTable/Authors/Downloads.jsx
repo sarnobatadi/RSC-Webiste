@@ -1,14 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PageBanner from '../PageBanner';
-//import dates from '../../../JSON/Authors/date.json'
-import {
-    Link
-} from "react-router-dom";
 import data from '../../../JSON/Programs/download.json'
-import axios from "axios";
-import { DisplayNotice } from '../DisplayNotice';
-import MaintenanceBreak from '../MaintenanceBreak';
-
 
 function Downloads() {
     return (

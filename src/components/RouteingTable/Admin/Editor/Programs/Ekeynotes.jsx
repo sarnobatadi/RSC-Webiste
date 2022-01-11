@@ -15,11 +15,8 @@ const EditableRow = ({
     handleCancelClick,
 }) => { 
     return (
-
         <tr>
-
             <td>
-
                 <input
                     className="email"
                     type="text"
@@ -32,7 +29,6 @@ const EditableRow = ({
                 ></input>
             </td>
             <td>
-
                 <input
                     className="email"
                     type="text"
@@ -43,10 +39,7 @@ const EditableRow = ({
                     value={editFormData.designation}
                     onChange={handleEditFormChange}
                 ></input>
-
             </td>
-
-
             <td>
                 <button type="submit" className="btn btn-success" >Save</button>
                 <button type="button" onClick={handleCancelClick} style={{ marginTop: '4%' }} className="btn btn-secondary" >

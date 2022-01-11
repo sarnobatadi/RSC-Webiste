@@ -297,91 +297,79 @@ const EImpDates = () => {
         //console.log('aaaa')
         //console.log(finalMessage)
     }
-
-
     return (
         <div>
-         
-                            <h2 className="classic-title"><span>Edit Important Dates </span></h2>
-                            <div className="app-container">
-                                <form onSubmit={handleEditFormSubmit}>
-                                    <table className="table table-responsive table-condensed table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Date</th>
-                                                <th>Details</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {dates.map((contact) => (
-                                                <Fragment>
-                                                    {editContactId === contact._id ? (
-                                                        <EditableRow
-                                                            editFormData={editFormData}
-                                                            handleEditFormChange={handleEditFormChange}
-                                                            handleCancelClick={handleCancelClick}
-                                                        />
-                                                    ) : (
-                                                        <ReadOnlyRow
-                                                            contact={contact}
-                                                            handleEditClick={handleEditClick}
-                                                            handleDeleteClick={handleDeleteClick}
-                                                        />
-                                                    )}
-                                                </Fragment>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </form>
-                                <br />
-                                <h2 className="classic-title"><span>Add a New Entry </span></h2>
-                                <br />
-                                <form onSubmit={handleAddFormSubmit} style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <div className="col-md-4">
-                                        <input
-                                            className="email"
-                                            style={{ maxWidth: '100%' }}
-                                            type="text"
-                                            name="impDate"
-                                            required="required"
-                                            placeholder="Enter a Date"
-                                            onChange={handleAddFormChange}
+            <h2 className="classic-title"><span>Edit Important Dates </span></h2>
+            <div className="app-container">
+                <form onSubmit={handleEditFormSubmit}>
+                    <table className="table table-responsive table-condensed table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Details</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {dates.map((contact) => (
+                                <Fragment>
+                                    {editContactId === contact._id ? (
+                                        <EditableRow
+                                            editFormData={editFormData}
+                                            handleEditFormChange={handleEditFormChange}
+                                            handleCancelClick={handleCancelClick}
                                         />
-                                    </div>
-                                    <div className="col-md-4">
-                                        <input
-                                            className="email"
-                                            style={{ maxWidth: '100%' }}
-                                            type="text"
-                                            name="details"
-                                            required="required"
-                                            placeholder="Enter Details"
-                                            onChange={handleAddFormChange}
+                                    ) : (
+                                        <ReadOnlyRow
+                                            contact={contact}
+                                            handleEditClick={handleEditClick}
+                                            handleDeleteClick={handleDeleteClick}
                                         />
-                                    </div>
-                                    <div className=" " style={{}}>
-                                        <button type="submit" class="btn btn-primary">Add</button>
-                                    </div>
-
-                                </form>
-
-                                <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
-                                <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState ={displayNotice} noticeStateChange={setDisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
-                                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
-                               
-                                
-                            
-                            <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
-                            <div className=" " style={{ textAlign: 'right' }}>
-                                <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
-                            </div>
-                        </div>
-
-
+                                    )}
+                                </Fragment>
+                            ))}
+                        </tbody>
+                    </table>
+                </form>
+                <br />
+                <h2 className="classic-title"><span>Add a New Entry </span></h2>
+                <br />
+                <form onSubmit={handleAddFormSubmit} style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <div className="col-md-4">
+                        <input
+                            className="email"
+                            style={{ maxWidth: '100%' }}
+                            type="text"
+                            name="impDate"
+                            required="required"
+                            placeholder="Enter a Date"
+                            onChange={handleAddFormChange}
+                        />
                     </div>
-         
-
+                    <div className="col-md-4">
+                        <input
+                            className="email"
+                            style={{ maxWidth: '100%' }}
+                            type="text"
+                            name="details"
+                            required="required"
+                            placeholder="Enter Details"
+                            onChange={handleAddFormChange}
+                        />
+                    </div>
+                    <div className=" " style={{}}>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+                <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
+                    <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState ={displayNotice} noticeStateChange={setDisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
+                    <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />
+                <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
+                <div className=" " style={{ textAlign: 'right' }}>
+                    <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
+                </div>
+            </div>
+        </div>
     );
 };
 

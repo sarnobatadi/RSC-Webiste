@@ -1,5 +1,4 @@
-import React, { Components, useState } from 'react';
-import Notifications from './Notifications';
+import React from 'react';
 import imgsrc from '../../../JSON/Images.json';
 import data from '../../../JSON/Home/HomeBody.json';
 

@@ -8,30 +8,19 @@ function EHeader() {
     const [title , setTitle] = useState(data.title);
     const [subtitle, setSubtitle] = useState(data.subtitle);
    
-
     const handleChange = evt => {
         const name = evt.target.name;
         const value = evt.target.value;
        
     }
-
     const handleSubmit = evt => {
         evt.preventDefault();
-    
         //console.log(JSON.stringify(dataToSend));
-
-
-
     }
-
 
     return (
         <div>
-
-
             <h2 className="classic-title"><span>Edit Header</span></h2>
-
-
             <form id='login' acceptCharset='UTF-8' onSubmit={handleSubmit}>
                 <input type='hidden' name='submitted' id='submitted' value='1' />
 
@@ -58,12 +47,8 @@ function EHeader() {
                 <br />
                 <br />
             </form>
-
-
         </div>
-
     );
-
 }
 
 

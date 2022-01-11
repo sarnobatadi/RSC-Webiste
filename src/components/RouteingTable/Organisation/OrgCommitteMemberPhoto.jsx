@@ -60,7 +60,7 @@ export default class OrgCommitteMemberPhoto extends Component {
                             <div className="team-member modern" style={{textAlign:'center'}}>
                                 
                                 <div className="org-photo" >
-                                    <img alt="" src="/images/Convener1.png" />
+                                    <img alt="" src="/images/Convener4.png" />
                                     
                                 </div>
                                 

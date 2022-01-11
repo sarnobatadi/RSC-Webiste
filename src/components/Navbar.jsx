@@ -165,7 +165,7 @@ function Navbar() {
               
 
               {/* About - start */}
-                <li>
+              <li>
                 <Link  to="/about" className={`${activeComponent == 'about' ? 'active':''}`} onClick={() => setActiveComponent("about")}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-info-circle"></i></span>About
                 </Link>

@@ -1,8 +1,6 @@
 import React from 'react';
 import Notifications from './Notifications';
-import Timer from './Timer';
 import data from '../../../JSON/Home/HomeBody.json';
-import Countdown from './Countdown';
 
 function HomeBody() {
     return (

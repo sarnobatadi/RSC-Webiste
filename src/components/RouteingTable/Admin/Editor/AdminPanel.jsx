@@ -18,7 +18,6 @@ import ESlider from './Images/ESlider';
 import ESupport from './Images/ESupport';
 import EImages from './Images/EImages';
 import EGallery from './Images/EGallery';
-import EOrgComCopy from './Committe/EOrgComCopy';
 export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
 

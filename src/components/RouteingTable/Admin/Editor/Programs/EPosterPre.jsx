@@ -57,8 +57,6 @@ function EPosterPre() {
               setOrgIdea(allData.data.organisationOfIdeas)
               setFormat(allData.data.format)
               setPresentation(allData.data.presentation)
-
-
             }      
         }
     }, [allData])
@@ -100,11 +98,7 @@ function EPosterPre() {
     const handleSubmit = evt=>{
        evt.preventDefault();
        endFormater();
-
-
-
     }
-
 
     return (
         <div>

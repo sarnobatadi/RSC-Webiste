@@ -3,8 +3,6 @@ import { nanoid } from "nanoid";
 import info from "../../../../../JSON/Authors/contributionTopics.json";
 import { NoticeBoard } from "../../NoticeBoard";
 import axios from "axios";
-//import ReadOnlyRow from "./components/ReadOnlyRow";
-//import EditableRow from "./components/EditableRow";
 
 const EditableRow = ({
     editFormData,
@@ -24,7 +22,6 @@ const EditableRow = ({
                     onChange={handleEditFormChange}
                 ></input>
             </td>
-
 
             <td>
                 <button type="submit" className="btn btn-success" >Save</button>
@@ -189,38 +186,21 @@ const CallFor = () => {
         const newContact = {
             _id: nanoid(),
             topicName: addFormData.topicName,
-
-
         };
         setAddFormData({topicName:""})
         const newContacts = [...list, newContact];
         setList(newContacts);
     };
-    const handleChange = evt => {
-        const name = evt.target.name;
-        const value = evt.target.value;
-        setState({
-            ...state,
-            [name]: value
-        })
-    }
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
-
         const editedContact = {
             _id: editContactId,
             topicName: editFormData.topicName,
-
-
         };
-
         const newContacts = [...list];
-
         const index = list.findIndex((contact) => contact._id === editContactId);
-
         newContacts[index] = editedContact;
-
         setList(newContacts);
         setEditContactId(null);
     };
@@ -228,21 +208,14 @@ const CallFor = () => {
     const handleEditClick = (event, contact) => {
         event.preventDefault();
         setEditContactId(contact._id);
-
         const formValues = {
             topicName: contact.topicName,
-
-
         };
-
         setEditFormData(formValues);
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-       
-        endFormater()
-        //console.log(dataToSend);
-
+        endFormater();
     }
 
     const handleCancelClick = () => {
@@ -251,11 +224,8 @@ const CallFor = () => {
 
     const handleDeleteClick = (contactId) => {
         const newContacts = [...list];
-
         const index = list.findIndex((contact) => contact._id === contactId);
-
         newContacts.splice(index, 1);
-
         setList(newContacts);
     };
 
@@ -268,7 +238,6 @@ const CallFor = () => {
              i=i+1;
         });
            
-        
         const final = {
             "displayNoticeStatus":displayNotice,
             "displayNoticeHeading":displayeNoticeHead,
