@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
 import PageBanner from '../PageBanner';
-
 import {Link} from "react-router-dom";
-
-import TopicsList from '../../../JSON/Authors/contributionTopics.json'
 import MaintenanceBreak from '../MaintenanceBreak';
 import axios from 'axios';
 import { DisplayNotice } from '../DisplayNotice';
@@ -35,11 +31,10 @@ function CallForContriBution() {
 
     useEffect(() => {
         const getData = async () => {
-            
             await axios.get("/get/contributionTopics").then((response)=>{
                 if(response.data[0]){
                     setAllData(response.data[0]); 
-                    console.log(response)
+                    //console.log(response)
                 } else {
                     setMaintenanceBreakMessageStatus(true);
                     setMaintenanceBreakMessageHead("Problem in Fetching data")
@@ -49,12 +44,12 @@ function CallForContriBution() {
             }).catch((e)=>{
              /* HANDLE THE ERROR (e) */
                 console.log(e);
+                setToShow(false);
                 setMaintenanceBreakMessageStatus(true);
                 setMaintenanceBreakMessageHead("Problem in Fetching data")
                 setMaintenanceBreakMessageContent("Please Contact admin for details")
             });
             setIsLoading(false);
-           
         };
         getData();
         setIsLoading(false);
@@ -136,15 +131,11 @@ function CallForContriBution() {
                                             </React.Fragment>
                                         ) : ( 
                                             <MaintenanceBreak heaading={maintenanceBreakMessageHead} message={maintenanceBreakMessageContent} />
-                                            
                                         )
                                     }
                                     </>
                                 )
                             }
-                            
-                            
-
                         </div>
                         {/* Related Links - start */}
                         <div className ="col-md-3 sidebar right-sidebar">

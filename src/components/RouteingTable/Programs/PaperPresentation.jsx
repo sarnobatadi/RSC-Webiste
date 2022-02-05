@@ -1,8 +1,6 @@
 import React from 'react';
 import PageBanner from '../PageBanner';
-import {
-    Link
-  } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
 function PaperPresentation() {
@@ -17,16 +15,20 @@ function PaperPresentation() {
                     <div className="page-content">
 
                         <div className="col-md-9">
-                            <div className="row">
-                                <div className="col-sm-12">
-                                <br/>
-                                        <br/>
-                                    <div className="alert alert-success alert-dismissible">
-                                        
-                                        <h3>More Information Will Be Displayed Soon! Stay Tuned For Updates.</h3>
-                                    </div>
-                                </div>
-                            </div>
+                            <h3 className="classic-title"><span>Paper Presentations Instructions</span></h3>
+                            
+                            <p style={{ whiteSpace: 'pre-line' }}>
+                                <b>Category A.</b> Last date for research paper submission on “Easychair” is 28th February 2022 for its possible
+                                consideration for publication. Refer to following instructions.
+                                <ol className="icons-list" >
+                                    <li>First review based on (Turnitin) plagiarism check, if any above 15%, will be communicated by 2nd March 2022 to enable the paper authors to revisit their write-up and confirm at their end to reduce the level of plagiarism below 15% and resubmit the modified paper along with (Turnitin) plagiarism report before 5th March 2022.</li>
+                                    <li>While submitting your paper please submit a blind paper with Paper Title only, without author names to have the blind reviews. Camera ready paper will have author names.</li>
+                                    <li>Technical experts’reviews will be communicated to the authors by 31st March 2022.</li>
+                                    <li>Registration, Camera ready paper and copy right declaration by the authors is to be submitted by 15th April2022.</li>
+                                    <li>The authors ofthe camera ready paper will orally presentthepaper at the symposium.</li>
+                                </ol>
+                            </p>
+                            
                         </div>
                          {/* Related Links - start */}
                         {/* Related Links - end */}

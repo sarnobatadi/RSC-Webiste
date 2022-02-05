@@ -9,7 +9,7 @@
         },
         {
             "id":8,
-            "text":"The IEEE template for paper submissions",
+            "text":"The Springer template for paper submissions",
             "link":"/asset/word.zip",
             "new":"true"
         },
@@ -43,9 +43,5 @@
             "link":"/asset/RSC%202019%20Proceeding.pdf",
             "new":"false"
         }
-
-
-
-        
     ]
 }

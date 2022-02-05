@@ -13,279 +13,36 @@ function IPS()
                 <div className="container">
                    <div class="project-page row">
 
-                        <div className="col-md-12"> 
-                            <div className="row">
-                                <div className="col-sm-12">
-                                    <div className="alert alert-success alert-dismissible">    
-                                        <h3>More Information Will Be Displayed Soon! Stay Tuned For Updates.</h3>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="col-md-9"> 
+                            <h3 className="classic-title"><span>Innovative Project Showcase Presentations Instructions</span></h3>
+                            
+                            <p style={{ whiteSpace: 'pre-line' }}>
+                                <b>Category C.</b> UG students in a group not exceeding four students in the group can submit their four page project paper work to <a href='https://www.rsc.wce.ac.in/#/'>www.rsc.wce.ac.in</a> by 31st March 2022. Students in this category will note the following.
+                                <ol className="icons-list" >
+                                    <li>These students willsubmit their work through their respective Guide /HoD.</li>
+                                    
+                                    <li>The authors in this category will confirm its plagiarism check at their end for the plagiarism level less than 30%. Paperwriteup,as per Springer format,not exceeding 4pages should have contents as
+                                        <ul>
+                                            <li><i className="fa fa-circle"></i> Title of the paper with affiliation and email details of the authors</li>
+                                            <li><i className="fa fa-circle"></i> Abstract (not exceeding 100words)</li>
+                                            <li><i className="fa fa-circle"></i> Introduction</li>
+                                            <li><i className="fa fa-circle"></i> Literature review with citation of maximum four references as per Springer format</li>
+                                            <li><i className="fa fa-circle"></i> Objective / Statement of problem andtypicalproposal of solution</li>
+                                            <li><i className="fa fa-circle"></i> Results and discussions and</li>
+                                            <li><i className="fa fa-circle"></i> References</li>
+                                        </ul>
+                                    </li>
+                                    <li>The shortlisted projects for inclusion into RSC 2022 will be communicated to the respective authors (with corrections if any) latest by 15th April 2022. These projects will be showcased in a competitive way during pre-symposium event titled as “Innovative Project Showcasing 2022” on 22nd April 2022. The first, second and the third best projects will receive cash prize of Rs 12,000/-, Rs 10,000/- and Rs 8,000/- respectively.</li>
+                                    <li>Registration fee of Rs 500/- per project group (of 4 students maximum) is compulsory for the event on 22nd April 2022. The registration fee isinclusive of all taxes anditincludesbreakfast (if event is conducted in Offline mode) andentrypass for all the keynote expert sessions on the day only. The mode of payment of registration fee will be communicated to the shortlisted project group members by email and also will be available on RSC website.</li>
+                                    <li>The registration isto be completed along with submission of corrected project paper, if any, by 20th April 2022.</li>
+                                    <li>Selected project groupstudents ofWCEmay be considered forregistration fee waiver.</li>    
+                                    <li>Selected project papers abstract will be considered for inclusion in the e-proceeding of the symposium which bears ISBN number.</li>
+                                   
+
+                                </ol>
+                            </p>
                         </div>
-                            {/* <div class="project-page row">
-                                <div class="project-media col-md-8">
-                                    <div class="touch-slider project-slider">
-                                        <div class="item">
-                                            <a class="lightbox" title="This is an image title" href="images/Portfolio-1/1.png" data-lightbox-gallery="gallery2">
-                                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                <img alt="" src="/images/poster.png" style={{width:"100%"}}/>
-                                            </a>
-                                        </div>
-                                        <div class="item">
-                                            <a class="lightbox" title="This is an image title" href="images/Portfolio-1/4.png" data-lightbox-gallery="gallery2">
-                                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                <img alt="" src="/images/poster.png" style={{width:"100%"}}/>
-                                            </a>
-                                        </div>
-                                        <div class="item">
-                                            <a class="lightbox" title="This is an image title" href="images/Portfolio-1/12.png" data-lightbox-gallery="gallery2">
-                                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                <img alt="" src="/images/poster.png" style={{width:"100%"}}/>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                               
-                                <div class="project-content col-md-4">
-                                    <h4><span>Project Description</span></h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed facilisis purus. Donec interdum massa at ipsum vehicula tristique. Maecenas bibendum dictum tincidunt. Sed nec justo ac libero consequat tincidunt. Cras eget molestie justo.</p>
-                                    <h4><span>Project Details</span></h4>
-                                    <ul>
-                                        <li><strong>Client:</strong> iThemesLab</li>
-                                        <li><strong>Status:</strong> Finish on 30 Dec, 2013</li>
-                                        <li><strong>Skills:</strong> creative, web design</li>
-                                    </ul>
-                                    <div class="post-share">
-                                        <span>Share This:</span>
-                                        <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                                        <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                                        <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                                        <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                                        <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
-                                    </div>
-                                </div>
-                              
-                                
-                            </div> */}
-                            {/* <div class="recent-projects">
-                                <h4 class="title"><span>Recent Projects</span></h4>
-                                <div class="projects-carousel touch-carousel">
-                                    
-                                    <div class="portfolio-item item">
-                                        <div class="portfolio-border">
-                                            <div class="portfolio-thumb">
-                                                <a class="lightbox" data-lightbox-type="ajax" href="https://vimeo.com/78468485">
-                                                    <div class="thumb-overlay"><i class="fa fa-play"></i></div>
-                                                    <img alt="" src="/images/poster.png" />
-                                                </a>
-                                            </div>
-                                            <div class="portfolio-details">
-                                                <a href="#">
-                                                    <h4>Lorem Ipsum Dolor</h4>
-                                                    <span>Website</span>
-                                                    <span>Drawing</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="portfolio-item item">
-                                        <div class="portfolio-border">
-                                            <div class="portfolio-thumb">
-                                                <a class="lightbox" title="This is an image title" href="images/portfolio-big-01.jpg">
-                                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                    <img alt="" src="/images/poster.png" />
-                                                </a>
-                                            </div>
-                                            <div class="portfolio-details">
-                                                <a href="#">
-                                                    <h4>Lorem Ipsum Dolor</h4>
-                                                    <span>Logo</span>
-                                                    <span>Animation</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="portfolio-item item">
-                                        <div class="portfolio-border">
-                                            <div class="portfolio-thumb">
-                                                <a href="#">
-                                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                    <img alt="" src="/images/poster.png" />
-                                                </a>
-                                            </div>
-                                            <div class="portfolio-details">
-                                                <a href="#">
-                                                    <h4>Lorem Ipsum Dolor</h4>
-                                                    <span>Drawing</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="portfolio-item item">
-                                        <div class="portfolio-border">
-                                            <div class="portfolio-thumb">
-                                                <a href="#">
-                                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                    <img alt="" src="/images/poster.png" />
-                                                </a>
-                                            </div>
-                                            <div class="portfolio-details">
-                                                <a href="#">
-                                                    <h4>Lorem Ipsum Dolor</h4>
-                                                    <span>Website</span>
-                                                    <span>Ilustration</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="portfolio-item item">
-                                        <div class="portfolio-border">
-                                            <div class="portfolio-thumb">
-                                                <a class="lightbox" title="This is an image title" href="images/portfolio-big-02.jpg">
-                                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                    <img alt="" src="images/Portfolio-1/5.png" />
-                                                </a>
-                                            </div>
-                                            <div class="portfolio-details">
-                                                <a href="#">
-                                                    <h4>Lorem Ipsum Dolor</h4>
-                                                    <span>Logo</span>
-                                                    <span>Drawing</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="portfolio-item item">
-                                        <div class="portfolio-border">
-                                            <div class="portfolio-thumb">
-                                                <a href="#">
-                                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                    <img alt="" src="images/Portfolio-1/6.png" />
-                                                </a>
-                                            </div>
-                                            <div class="portfolio-details">
-                                                <a href="#">
-                                                    <h4>Lorem Ipsum Dolor</h4>
-                                                    <span>Animation</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="portfolio-item item">
-                                        <div class="portfolio-border">
-                                            <div class="portfolio-thumb">
-                                                <a class="lightbox" title="This is an image title" href="images/portfolio-big-03.jpg">
-                                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                    <img alt="" src="images/Portfolio-1/7.png" />
-                                                </a>
-                                            </div>
-                                            <div class="portfolio-details">
-                                                <a href="#">
-                                                    <h4>Lorem Ipsum Dolor</h4>
-                                                    <span>Website</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="portfolio-item item">
-                                        <div class="portfolio-border">
-                                            <div class="portfolio-thumb">
-                                                <a href="#">
-                                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                    <img alt="" src="images/Portfolio-1/8.png" />
-                                                </a>
-                                            </div>
-                                            <div class="portfolio-details">
-                                                <a href="#">
-                                                    <h4>Lorem Ipsum Dolor</h4>
-                                                    <span>Ilustration</span>
-                                                    <span>Animation</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="portfolio-item item">
-                                        <div class="portfolio-border">
-                                            <div class="portfolio-thumb">
-                                                <a href="#">
-                                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                    <img alt="" src="images/Portfolio-1/9.png" />
-                                                </a>
-                                            </div>
-                                            <div class="portfolio-details">
-                                                <a href="#">
-                                                    <h4>Lorem Ipsum Dolor</h4>
-                                                    <span>Ilustration</span>
-                                                    <span>Animation</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="portfolio-item item">
-                                        <div class="portfolio-border">
-                                            <div class="portfolio-thumb">
-                                                <a href="#">
-                                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                    <img alt="" src="images/Portfolio-1/10.png" />
-                                                </a>
-                                            </div>
-                                            <div class="portfolio-details">
-                                                <a href="#">
-                                                    <h4>Lorem Ipsum Dolor</h4>
-                                                    <span>Ilustration</span>
-                                                    <span>Animation</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="portfolio-item item">
-                                        <div class="portfolio-border">
-                                            <div class="portfolio-thumb">
-                                                <a href="#">
-                                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                    <img alt="" src="images/Portfolio-1/11.png" />
-                                                </a>
-                                            </div>
-                                            <div class="portfolio-details">
-                                                <a href="#">
-                                                    <h4>Lorem Ipsum Dolor</h4>
-                                                    <span>Ilustration</span>
-                                                    <span>Animation</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="portfolio-item item">
-                                        <div class="portfolio-border">
-                                            <div class="portfolio-thumb">
-                                                <a href="#">
-                                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                                    <img alt="" src="images/Portfolio-1/12.png" />
-                                                </a>
-                                            </div>
-                                            <div class="portfolio-details">
-                                                <a href="#">
-                                                    <h4>Lorem Ipsum Dolor</h4>
-                                                    <span>Ilustration</span>
-                                                    <span>Animation</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div> */}
+                            
                         <div className="col-md-3 sidebar right-sidebar">
                             <div className="widget widget-categories">
                                 <h4>Related Links <span className="head-line"></span></h4>

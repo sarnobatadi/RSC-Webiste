@@ -105,6 +105,34 @@ function PosterPresentation() {
                                                             <displayNotice heading={displayeNoticeHead} message={displayeNoticeContent} />
                                                         ) : null
                                                     }
+
+                                                    <h3 className="classic-title"><span>Poster Presentations Instructions</span></h3>
+                            
+                                                    <p style={{ whiteSpace: 'pre-line' }}>
+                                                        <b>Category B.</b> M Tech CSE / IT/Electronics students can submit their research / dissertation / Review papers latest by 11th March 2022 in this category. Refer to following instructions.
+                                                        <ol className="icons-list" >
+                                                            <li>The authors in this category will confirm its plagiarism check at their end for the plagiarism level less than 20%. Paper write up, as perspringer format, not exceeding 4 pages should have contents as
+                                                                <ul>
+                                                                    <li><i className="fa fa-circle"></i> Title of the paper with affiliation and email details of the authors</li>
+                                                                    <li><i className="fa fa-circle"></i> Abstract (not exceeding 100words)</li>
+                                                                    <li><i className="fa fa-circle"></i> Introduction</li>
+                                                                    <li><i className="fa fa-circle"></i> Literature review with citation of maximum four references as per format given on website</li>
+                                                                    <li><i className="fa fa-circle"></i> Objective / Statement of problem andtypicalproposal ofsolution</li>
+                                                                    <li><i className="fa fa-circle"></i> Results and discussions and</li>
+                                                                    <li><i className="fa fa-circle"></i> Conclusion (if Any)</li>
+                                                                    <li><i className="fa fa-circle"></i> References.</li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>The paper should be submitted through the easychair link provided at <a href='https://www.rsc.wce.ac.in/#/'>www.rsc.wce.ac.in</a>.</li>
+                                                            <li>The shortlisted papers for inclusion into RSC 2022 will be communicated to the respective authors latest by 31st March 2022.</li>
+                                                            <li>Camera ready paper, Registration along with the (Turnitin) plagiarism check report is to be separately submitted by the authors to <a href='https://www.rsc.wce.ac.in/#/'>www.rsc.wce.ac.in</a> through the Guide / HoD of their department by 7th April 2022.</li>
+                                                            <li>Selected papers in this category will be considered for its poster presentation and subsequently may published in the e-proceeding of the symposium which bears ISBN.
+
+                                                            </li>
+
+                                                        </ol>
+                                                    </p>
+
                                                     <h3 className="classic-title"><span>Size & Layout</span></h3>
                                                     {
                                                         sizeLayout && <p style={{ whiteSpace: 'pre-line' }}>{sizeLayout}</p>

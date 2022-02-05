@@ -50,8 +50,7 @@ img {
   height: auto;
 }
 
-ul,
-ol {
+ul {
   list-style: none;
 }
 
@@ -5756,12 +5755,22 @@ table tbody td {
   max-width: 10%;
   min-width: 70px;
 }
+
+.headerLogo a img:hover {
+  border: 1px solid #00afd1;
+  padding: 3px;
+}
+
 .headerLogo1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 10%;
   min-width: 70px;
+}
+.headerLogo1 a img:hover {
+  border: 1px solid #00afd1;
+  padding: 3px;
 }
 
 @media only screen and (max-width: 550px) {
