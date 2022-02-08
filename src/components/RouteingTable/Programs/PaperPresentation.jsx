@@ -1,6 +1,7 @@
 import React from 'react';
 import PageBanner from '../PageBanner';
 import {Link} from "react-router-dom";
+import ImpDates from '../Home/ImpDates';
 
 
 function PaperPresentation() {
@@ -28,6 +29,8 @@ function PaperPresentation() {
                                     <li>The authors ofthe camera ready paper will orally presentthepaper at the symposium.</li>
                                 </ol>
                             </p>
+                            <h3 className="classic-title"><span>Template</span></h3>
+                            <p><a href="/asset/Template for Poster Presenatation.pptx" target='_blank'> Template for poster presentation</a></p>
                             
                         </div>
                          {/* Related Links - start */}
@@ -59,6 +62,7 @@ function PaperPresentation() {
 
                                 </ul>
                             </div>
+                            <ImpDates />
                         </div>
                     </div>
                 </div>

@@ -14,6 +14,12 @@ function IPS()
                    <div class="project-page row">
 
                         <div className="col-md-9"> 
+                            <h2 className="classic-title"><span>Innovative Project Showcase Presentations</span></h2>
+                            <ol>
+                                <li><b>On 22rd April 2022</b></li>
+                                <li><b>Prize worth Rs. 30000</b>(for top 3 winners)</li>
+                                <li>Registration Fees : Rs. 500</li>
+                            </ol>
                             <h3 className="classic-title"><span>Innovative Project Showcase Presentations Instructions</span></h3>
                             
                             <p style={{ whiteSpace: 'pre-line' }}>
@@ -64,6 +70,26 @@ function IPS()
                                     </li>
                                 </ul>
                             </div>
+                            <table className="table table-responsive table-condensed table-bordered" style={{margin:"0px"}}>
+                                    <thead>
+                                        <th>Submission deadline</th>
+                                    </thead>
+                                    <tbody>
+                                    <td>31th March 2022</td>
+                                    </tbody>
+                                    <thead>
+                                        <th>Notification of acceptance</th>
+                                    </thead>
+                                    <tbody>
+                                    <td>15st March 2022</td>
+                                    </tbody>
+                                    <thead>
+                                        <th>Registration deadline</th>
+                                    </thead>
+                                    <tbody>
+                                    <td>20th April 2022</td>
+                                    </tbody>
+                                </table>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,6 @@ import axios from 'axios';
 import {
     Link
 } from "react-router-dom";
-import posterPresentation from "../../../JSON/Programs/posterPresentation.json"
 
 
 function PosterPresentation() {
@@ -105,7 +104,17 @@ function PosterPresentation() {
                                                             <displayNotice heading={displayeNoticeHead} message={displayeNoticeContent} />
                                                         ) : null
                                                     }
-
+                                                    <h2 className="classic-title"><span>Poster Presentations </span></h2>
+                                                    <ol>
+                                                        <li><b>On 23rd and 24th April 2022</b></li>
+                                                        <li><b>Prize worth Rs. 20000</b></li>
+                                                        <li>Focusses on PG students & Research scholars</li>
+                                                        <li>Students will be able to explore new ideas & technologies</li>
+                                                        <li>Students will get critical feedback from experts in the area olo for their research work</li>
+                                                        <li>Registration Fees : Rs. 1000 (for late registration Rs. 1200)   </li>
+                                                    </ol>
+                                                   
+                                                    
                                                     <h3 className="classic-title"><span>Poster Presentations Instructions</span></h3>
                             
                                                     <p style={{ whiteSpace: 'pre-line' }}>
@@ -186,6 +195,35 @@ function PosterPresentation() {
                                         <Link to="Register">Registration</Link>
                                     </li>
                                 </ul>
+                            </div>
+                            <div className="latest-posts">
+                                <div style={{display:'flex', justifyContent:'space-between'}}>
+                                    <h3 className="classic-title" id="notifications"><span>Important Dates</span></h3>
+                                    <Link to='authors/Important-Dates'><i className='fa fa-arrow-right'></i></Link>
+                                </div>
+                            
+                                <table className="table table-responsive table-condensed table-bordered" style={{margin:"0px"}}>
+                                    <thead>
+                                        <th>Submission deadline</th>
+                                    </thead>
+                                    <tbody>
+                                    <td>11th March 2022</td>
+                                    </tbody>
+                                    <thead>
+                                        <th>Notification of acceptance</th>
+                                    </thead>
+                                    <tbody>
+                                    <td>31st March 2022</td>
+                                    </tbody>
+                                    <thead>
+                                        <th>Registration deadline</th>
+                                    </thead>
+                                    <tbody>
+                                    <td>15th April 2022</td>
+                                    </tbody>
+                                </table>
+                       
+
                             </div>
                         </div>
                         {/* Related Links - end */}
